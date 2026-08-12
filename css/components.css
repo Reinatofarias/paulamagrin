@@ -777,9 +777,9 @@
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: linear-gradient(to bottom, rgba(251, 248, 244, 0.9), rgba(251, 248, 244, 0));
+  background: linear-gradient(to bottom, rgba(251, 248, 244, 0.96), rgba(251, 248, 244, 0.68) 58%, rgba(251, 248, 244, 0));
   border-bottom: none;
-  height: 96px;
+  height: 116px;
   display: flex;
   align-items: center;
 }
@@ -794,11 +794,19 @@
 .header__logo-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: 118px;
+  min-height: 78px;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-lg);
+  background: rgba(42, 35, 32, 0.86);
+  border: 1px solid rgba(184, 149, 106, 0.34);
+  box-shadow: 0 14px 34px rgba(42, 35, 32, 0.16);
 }
 
 .header__logo {
-  height: 52px;
-  max-width: 180px;
+  height: 68px;
+  max-width: 150px;
   width: auto;
   object-fit: contain;
   display: block;

@@ -12,13 +12,19 @@
     justify-content: center;
   }
   .header {
-    height: 60px;
+    height: 86px;
+  }
+  .header__logo-link {
+    min-width: 96px;
+    min-height: 62px;
+    padding: var(--space-2xs) var(--space-sm);
   }
   .header__logo {
-    height: 34px;
+    height: 54px;
+    max-width: 116px;
   }
   .hero {
-    padding-top: calc(60px + var(--space-xl));
+    padding-top: calc(86px + var(--space-lg));
     align-items: flex-start;
   }
   .hero__headline {
