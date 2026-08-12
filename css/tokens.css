@@ -1,0 +1,172 @@
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS — Paula Magrin Landing Page
+   Identidade Visual: Marrom escuro + Dourado bronze
+   Paleta: Cream · Terracotta · Olive · Amber · Teal
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Background Colors ─── */
+  --color-bg-primary: #FBF8F4;
+  --color-bg-secondary: #F1E8DC;
+  --color-bg-tertiary: #E8DED1;
+  --color-bg-accent: #DDD0C0;
+  --color-bg-dark: #352C27;
+  --color-bg-dark-rich: #2A2320;
+  --color-bg-warm: #3F3430;
+
+  /* ─── Text Colors ─── */
+  --color-text-primary: #2A2320;
+  --color-text-secondary: #5C504A;
+  --color-text-tertiary: #8C7E76;
+  --color-text-inverse: #FAF7F3;
+  --color-text-accent: #B8956A;
+
+  /* ─── Brand Colors (from logo) ─── */
+  --color-brown-dark: #352C27;
+  --color-brown-rich: #2A2320;
+  --color-brown-medium: #5C504A;
+  --color-brown-warm: #3F3430;
+  --color-brown-light: #6B5D55;
+  --color-gold: #B8956A;
+  --color-gold-light: #CBAA82;
+  --color-gold-muted: #A68B66;
+  --color-gold-pale: #D4BFA6;
+
+  /* ─── Brand Palette (from usage) ─── */
+  --color-cream: #EDE5D9;
+  --color-terracotta: #C06530;
+  --color-terracotta-light: #D47842;
+  --color-terracotta-dark: #A85528;
+  --color-olive: #5A6335;
+  --color-olive-light: #6B7544;
+  --color-olive-dark: #4A5229;
+  --color-amber: #CB9440;
+  --color-amber-light: #D9A654;
+  --color-amber-dark: #B58235;
+  --color-teal: #2C5364;
+  --color-teal-light: #3A6B7E;
+  --color-teal-dark: #1F3F4E;
+
+  /* ─── UI Colors ─── */
+  --color-border: #D5C8BB;
+  --color-border-light: #E8E0D8;
+  --color-focus: #B8956A;
+  --color-error: #B85450;
+  --color-error-light: #F5EAEA;
+  --color-success: #5A6335;
+  --color-success-light: #EDF2EA;
+  --color-overlay: rgba(42, 35, 32, 0.6);
+
+  /* ─── Font Families ─── */
+  --font-display: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Manrope', 'Segoe UI', 'Helvetica Neue', sans-serif;
+
+  /* ─── Font Sizes (Fluid Clamp) ─── */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4rem;
+
+  /* ─── Line Heights ─── */
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.65;
+  --leading-relaxed: 1.8;
+
+  /* ─── Font Weights ─── */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ─── Letter Spacing ─── */
+  --tracking-tight: 0;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+  --tracking-widest: 0.24em;
+
+  /* ─── Spacing Scale ─── */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* ─── Section Spacing ─── */
+  --section-py: clamp(4rem, 8vw, 7.5rem);
+  --section-px: clamp(1.25rem, 5vw, 2rem);
+
+  /* ─── Containers ─── */
+  --container-max: 1200px;
+  --container-narrow: 800px;
+  --container-text: 680px;
+
+  /* ─── Shadows ─── */
+  --shadow-xs: 0 1px 2px rgba(42, 35, 32, 0.04);
+  --shadow-sm: 0 1px 4px rgba(42, 35, 32, 0.06);
+  --shadow-md: 0 4px 16px rgba(42, 35, 32, 0.08);
+  --shadow-lg: 0 8px 30px rgba(42, 35, 32, 0.1);
+  --shadow-xl: 0 20px 60px rgba(42, 35, 32, 0.14);
+  --shadow-gold: 0 4px 24px rgba(184, 149, 106, 0.2);
+
+  /* ─── Border Radius ─── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* ─── Transitions ─── */
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 800ms;
+  --duration-slowest: 1200ms;
+
+  /* ─── Z-Index Scale ─── */
+  --z-base: 1;
+  --z-above: 10;
+  --z-floating: 50;
+  --z-sticky: 100;
+  --z-modal-backdrop: 900;
+  --z-modal: 1000;
+
+  /* ─── Glassmorphism & Premium Gradients ─── */
+  --glass-bg: rgba(255, 255, 255, 0.42);
+  --glass-bg-dark: rgba(42, 35, 32, 0.45);
+  --glass-bg-teal: rgba(44, 83, 100, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-border-gold: rgba(184, 149, 106, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(42, 35, 32, 0.03);
+  --glass-backdrop: blur(16px);
+  --gradient-gold: linear-gradient(135deg, #A68B66 0%, #CB9440 50%, #D4BFA6 100%);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.35rem;
+    --text-5xl: 2.75rem;
+    --section-py: 3.75rem;
+    --section-px: 1rem;
+  }
+}

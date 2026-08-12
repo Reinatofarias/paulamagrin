@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — Tablet & Desktop (Mobile-First)
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Mobile Small Custom Overrides (≤ 640px) ─── */
+
+@media (max-width: 640px) {
+  .header__btn {
+    display: none !important;
+  }
+  .header__container {
+    justify-content: center;
+  }
+  .header {
+    height: 60px;
+  }
+  .header__logo {
+    height: 34px;
+  }
+  .hero {
+    padding-top: calc(60px + var(--space-xl));
+    align-items: flex-start;
+  }
+  .hero__headline {
+    font-size: 1.85rem;
+    line-height: 1.08;
+    text-wrap: pretty;
+    max-width: 100%;
+  }
+  .hero__subheadline {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  .btn-cta--large {
+    width: 100%;
+    padding-inline: var(--space-lg);
+    min-width: 0;
+  }
+  .hero__media-wrapper {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .diff-step {
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: center;
+    align-items: center;
+    padding: var(--space-md);
+  }
+  .diff-step__number {
+    min-width: auto;
+    font-size: var(--text-2xl);
+  }
+  .testimonial-card {
+    padding: var(--space-xl);
+  }
+  .hero__grid {
+    gap: var(--space-xl);
+  }
+  .hero__media-wrapper {
+    max-width: min(100%, 280px);
+  }
+  .hero__media-caption {
+    padding: var(--space-sm) var(--space-md);
+  }
+  .testimonial-audio {
+    padding: var(--space-md);
+  }
+}
+
+/* ─── Tablet (≥ 640px) ─── */
+
+@media (min-width: 640px) {
+
+  /* Practical grid: 2 columns */
+  .practical__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  /* For whom grid */
+  .for-whom__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Social proof grid */
+  .social-proof__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Hero image larger */
+  .hero__media-wrapper {
+    max-width: 380px;
+  }
+}
+
+/* ─── Tablet Landscape (≥ 768px) ─── */
+
+@media (min-width: 768px) {
+
+  /* Hide floating CTA on larger screens */
+  .floating-cta {
+    display: none;
+  }
+
+  /* About grid: side by side */
+  .about__grid {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .about__image-wrapper {
+    max-width: none;
+  }
+
+  /* Social proof: 3 columns when available */
+  .social-proof__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonial-audio {
+    grid-template-columns: minmax(180px, 0.7fr) minmax(260px, 1fr);
+  }
+}
+
+/* ─── Desktop (≥ 1024px) ─── */
+
+@media (min-width: 1024px) {
+
+  /* Hero: 2-column layout */
+  .hero__grid {
+    grid-template-columns: 55fr 45fr;
+    gap: var(--space-3xl);
+    min-height: 80vh;
+  }
+
+  .hero__content {
+    order: 0;
+  }
+
+  .hero__media-wrapper {
+    order: 1;
+    max-width: 420px;
+  }
+
+  .hero {
+    padding-top: var(--space-4xl);
+  }
+
+  /* Hero headline larger */
+  .hero__headline {
+    font-size: var(--text-5xl);
+  }
+
+  /* Identification headline centered or wider */
+  .identification__headline {
+    max-width: 700px;
+  }
+
+  .identification__cards {
+    max-width: var(--container-narrow);
+  }
+
+  /* Reconstruction steps: horizontal */
+  .reconstruction__steps {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .step-connector {
+    padding: 0 var(--space-md);
+    align-self: center;
+    margin-top: var(--space-3xl);
+  }
+
+  .step-connector__line {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+  }
+
+  /* Differential steps: 2x2 grid or keep as list */
+  .differential__steps {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  /* Practical grid: wider */
+  .practical__grid {
+    gap: var(--space-md);
+  }
+
+  /* Hero decorative element */
+  .hero__deco {
+    display: block;
+  }
+}
+
+/* ─── Large Desktop (≥ 1280px) ─── */
+
+@media (min-width: 1280px) {
+
+  .hero__grid {
+    gap: var(--space-4xl);
+  }
+
+  .about__grid {
+    gap: var(--space-4xl);
+  }
+}
+
+/* ─── Print ─── */
+
+@media print {
+  .floating-cta,
+  .modal-overlay,
+  .hero__deco {
+    display: none !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+}

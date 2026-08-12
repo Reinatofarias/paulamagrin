@@ -1,0 +1,212 @@
+/* ═══════════════════════════════════════════════════════
+   ANIMATIONS — Keyframes & Scroll Entrance
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Keyframes ─── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawLine {
+  from { 
+    transform: scaleY(0);
+  }
+  to { 
+    transform: scaleY(1);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* ─── Hero Entrance ─── */
+
+.hero__content > * {
+  opacity: 0;
+  animation: fadeUp var(--duration-slower) var(--ease-premium) forwards;
+}
+
+.hero__content > *:nth-child(1) { animation-delay: 100ms; }
+.hero__content > *:nth-child(2) { animation-delay: 250ms; }
+.hero__content > *:nth-child(3) { animation-delay: 400ms; }
+.hero__content > *:nth-child(4) { animation-delay: 550ms; }
+.hero__content > *:nth-child(5) { animation-delay: 650ms; }
+.hero__content > *:nth-child(6) { animation-delay: 750ms; }
+
+.hero__media-wrapper {
+  opacity: 0;
+  animation: fadeIn var(--duration-slowest) var(--ease-gentle) 400ms forwards;
+}
+
+/* ─── Scroll Entrance Classes ─── */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slower) var(--ease-premium),
+              transform var(--duration-slower) var(--ease-premium);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity var(--duration-slower) var(--ease-premium),
+              transform var(--duration-slower) var(--ease-premium);
+}
+
+.animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity var(--duration-slower) var(--ease-premium),
+              transform var(--duration-slower) var(--ease-premium);
+}
+
+.animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity var(--duration-slower) var(--ease-premium),
+              transform var(--duration-slower) var(--ease-premium);
+}
+
+.animate-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-fade {
+  opacity: 0;
+  transition: opacity var(--duration-slower) var(--ease-premium);
+}
+
+.animate-fade.is-visible {
+  opacity: 1;
+}
+
+/* ─── Stagger Delays ─── */
+
+[data-stagger] > .animate-on-scroll:nth-child(1),
+[data-stagger] > .animate-slide-right:nth-child(1) { transition-delay: 0ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(2),
+[data-stagger] > .animate-slide-right:nth-child(2) { transition-delay: 120ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(3),
+[data-stagger] > .animate-slide-right:nth-child(3) { transition-delay: 240ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(4),
+[data-stagger] > .animate-slide-right:nth-child(4) { transition-delay: 360ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(5),
+[data-stagger] > .animate-slide-right:nth-child(5) { transition-delay: 480ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(6),
+[data-stagger] > .animate-slide-right:nth-child(6) { transition-delay: 600ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(7),
+[data-stagger] > .animate-slide-right:nth-child(7) { transition-delay: 720ms; }
+
+[data-stagger] > .animate-on-scroll:nth-child(8),
+[data-stagger] > .animate-slide-right:nth-child(8) { transition-delay: 840ms; }
+
+/* ─── Decorative Line Draw ─── */
+
+.line-draw {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform var(--duration-slowest) var(--ease-premium);
+}
+
+.line-draw.is-visible {
+  transform: scaleY(1);
+}
+
+/* ─── Reduced Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-on-scroll,
+  .animate-slide-right,
+  .animate-slide-left,
+  .animate-scale,
+  .animate-fade {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__content > *,
+  .hero__media-wrapper {
+    opacity: 1;
+    animation: none;
+  }
+}
