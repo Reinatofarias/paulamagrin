@@ -43,17 +43,6 @@
 }
 
 @media (max-width: 480px) {
-  .diff-step {
-    flex-direction: column;
-    gap: var(--space-xs);
-    text-align: center;
-    align-items: center;
-    padding: var(--space-md);
-  }
-  .diff-step__number {
-    min-width: auto;
-    font-size: var(--text-2xl);
-  }
   .testimonial-card {
     padding: var(--space-xl);
   }
@@ -183,12 +172,6 @@
     width: 48px;
     height: 1px;
     background: linear-gradient(to right, transparent, var(--color-gold), transparent);
-  }
-
-  /* Differential steps: 2x2 grid or keep as list */
-  .differential__steps {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
   }
 
   /* Practical grid: wider */
