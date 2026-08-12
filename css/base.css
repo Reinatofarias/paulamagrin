@@ -13,7 +13,9 @@ body {
   font-weight: var(--weight-regular);
   line-height: var(--leading-normal);
   color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(184, 149, 106, 0.08), transparent 32rem),
+    linear-gradient(180deg, var(--color-bg-primary), var(--color-surface-paper));
 }
 
 /* ─── Headings ─── */
@@ -85,7 +87,7 @@ a {
 /* ─── Selection ─── */
 
 ::selection {
-  background: var(--color-sage-light);
+  background: var(--color-gold-pale);
   color: var(--color-text-primary);
 }
 
@@ -114,6 +116,24 @@ a {
   overflow: hidden;
 }
 
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(184, 149, 106, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 149, 106, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
 /* ─── Section Labels ─── */
 
 .section__label {
@@ -131,13 +151,28 @@ a {
 }
 
 .section__label--inverse {
-  color: var(--color-sage-light);
+  color: var(--color-gold-pale);
 }
 
 /* ─── Section Headlines ─── */
 
 .section__headline {
   margin-bottom: var(--space-lg);
+}
+
+.section__headline::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 1px;
+  margin-top: var(--space-lg);
+  background: linear-gradient(90deg, var(--color-gold-deep), var(--color-gold-pale), transparent);
+}
+
+.section__headline[style*="text-align: center"]::after,
+.faq__headline::after {
+  margin-inline: auto;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
 }
 
 .section__subheadline {
@@ -177,7 +212,14 @@ a {
 /* ─── Ambient Glow Orbs ─── */
 
 .ambient-glow {
-  display: none;
+  position: absolute;
+  width: clamp(220px, 34vw, 520px);
+  height: clamp(220px, 34vw, 520px);
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .ambient-glow--gold {

@@ -185,10 +185,10 @@
 
 .id-card {
   padding: var(--space-lg) var(--space-xl);
-  background: var(--glass-bg);
+  background: rgba(251, 248, 244, 0.72);
   backdrop-filter: var(--glass-backdrop);
   -webkit-backdrop-filter: var(--glass-backdrop);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(184, 149, 106, 0.18);
   border-left: 4px solid var(--color-gold-pale);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-md);
@@ -276,7 +276,7 @@
 /* ─── FAQ Accordion ─── */
 
 .faq-item {
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid rgba(184, 149, 106, 0.18);
 }
 
 .faq-item__question {
@@ -412,13 +412,13 @@
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(251, 248, 244, 0.52);
+  border: 1px solid rgba(184, 149, 106, 0.16);
   transition: all var(--duration-base) var(--ease-premium);
 }
 
 .feature-item:hover {
-  background: var(--glass-bg);
+  background: rgba(251, 248, 244, 0.82);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
   border-color: var(--color-gold-pale);
@@ -569,7 +569,7 @@
   max-width: 520px;
   max-height: 90vh;
   overflow-y: auto;
-  background: rgba(250, 247, 243, 0.88);
+  background: rgba(251, 248, 244, 0.94);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1.5px solid var(--glass-border-gold);
@@ -815,11 +815,14 @@
 .hero .btn-cta {
   background: var(--color-bg-primary);
   color: var(--color-brown-rich);
+  border: 1px solid rgba(212, 191, 166, 0.5);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .hero .btn-cta:hover {
   background: #fff;
   color: var(--color-brown-rich);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 4px rgba(212, 191, 166, 0.08);
 }
 
 .hero .cta-microcopy {

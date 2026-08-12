@@ -7,16 +7,16 @@
 
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: min(92vh, 920px);
   display: flex;
   align-items: center;
   background:
-    linear-gradient(112deg, rgba(42, 35, 32, 0.98) 0%, rgba(63, 52, 48, 0.94) 52%, rgba(92, 80, 74, 0.86) 100%),
+    radial-gradient(circle at 78% 28%, rgba(184, 149, 106, 0.18), transparent 26rem),
+    var(--gradient-hero),
     var(--color-bg-dark-rich);
   overflow: hidden;
   padding-top: calc(72px + var(--space-2xl));
-  padding-bottom: var(--space-2xl);
+  padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .hero__grid {
@@ -29,6 +29,21 @@
 .hero__content {
   order: 0;
   min-width: 0;
+}
+
+.hero__content::before {
+  content: 'Reconstrução de identidade';
+  display: block;
+  width: fit-content;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-xs);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  border-bottom: 1px solid rgba(212, 191, 166, 0.5);
 }
 
 .hero__headline {
@@ -119,7 +134,7 @@
 /* ─── S02: IDENTIFICATION ─── */
 
 .identification {
-  background: var(--color-bg-secondary);
+  background: var(--gradient-paper);
 }
 
 .identification__headline {
@@ -153,7 +168,7 @@
 /* ─── S03: REFRAME ─── */
 
 .reframe {
-  background: var(--color-bg-primary);
+  background: var(--color-surface-paper);
 }
 
 .reframe__inner {
@@ -174,7 +189,8 @@
   padding: var(--space-xl) var(--space-2xl);
   margin-block: var(--space-2xl);
   border-left: 3px solid var(--color-gold);
-  background: var(--color-bg-secondary);
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: var(--shadow-sm);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
@@ -191,10 +207,23 @@
 /* ─── S04: RECONSTRUCTION CONCEPT ─── */
 
 .reconstruction {
-  background: var(--color-teal-dark);
+  background:
+    radial-gradient(circle at 18% 24%, rgba(212, 191, 166, 0.12), transparent 22rem),
+    linear-gradient(135deg, #2A2320 0%, #332824 52%, #1F2A2C 100%);
   color: var(--color-text-inverse);
   position: relative;
   overflow: hidden;
+}
+
+.reconstruction::after {
+  content: '';
+  position: absolute;
+  inset: auto -9rem -9rem auto;
+  width: clamp(260px, 36vw, 560px);
+  aspect-ratio: 1;
+  background: url('../images/logo/logo dourada.png') center / contain no-repeat;
+  opacity: 0.024;
+  pointer-events: none;
 }
 
 .reconstruction__inner {
@@ -250,7 +279,7 @@
 /* ─── S05: PRACTICAL ─── */
 
 .practical {
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-linen);
 }
 
 .practical__headline {
@@ -276,7 +305,8 @@
 /* ─── S06: ABOUT ─── */
 
 .about {
-  background: var(--color-bg-primary);
+  background:
+    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-surface-paper) 100%);
 }
 
 .about__grid {
@@ -367,7 +397,9 @@
 /* ─── S07: DIFFERENTIAL ─── */
 
 .differential {
-  background: var(--color-bg-dark-rich);
+  background:
+    radial-gradient(circle at 88% 16%, rgba(184, 149, 106, 0.12), transparent 24rem),
+    linear-gradient(145deg, #241B18 0%, #302520 56%, #392E29 100%);
   color: var(--color-text-inverse);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -454,22 +486,22 @@
   margin-inline: auto;
   text-align: center;
   padding-top: var(--space-xl);
-  border-top: 1px solid var(--color-border-light);
+  border-top: 1px solid rgba(212, 191, 166, 0.2);
 }
 
 .differential__closing p {
   font-size: var(--text-lg);
-  color: var(--color-text-secondary);
+  color: rgba(250, 247, 243, 0.74);
 }
 
 .differential__closing strong {
-  color: var(--color-text-primary);
+  color: var(--color-gold-pale);
 }
 
 /* ─── S08: FOR WHOM ─── */
 
 .for-whom {
-  background: var(--color-bg-secondary);
+  background: var(--gradient-band);
 }
 
 .for-whom__headline {
@@ -512,7 +544,7 @@
 /* ─── S09: SOCIAL PROOF ─── */
 
 .social-proof {
-  background: var(--color-bg-primary);
+  background: var(--color-surface-paper);
 }
 
 .social-proof__headline {
@@ -547,9 +579,9 @@
 
 .testimonial-media {
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-light);
+  border: 1px solid rgba(184, 149, 106, 0.2);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-premium);
   overflow: hidden;
 }
 
@@ -571,8 +603,8 @@
   gap: var(--space-md);
   align-items: center;
   padding: var(--space-lg);
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border-light);
+  background: rgba(251, 248, 244, 0.72);
+  border: 1px solid rgba(184, 149, 106, 0.18);
   border-left: 4px solid var(--color-gold);
   border-radius: var(--radius-lg);
 }
@@ -596,7 +628,7 @@
 /* ─── S10: FAQ ─── */
 
 .faq {
-  background: var(--color-bg-secondary);
+  background: var(--color-surface-linen);
 }
 
 .faq__headline {
@@ -612,7 +644,9 @@
 /* ─── S11: FINAL CTA ─── */
 
 .final-cta {
-  background: var(--color-bg-primary);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(184, 149, 106, 0.14), transparent 24rem),
+    linear-gradient(180deg, var(--color-surface-paper), var(--color-bg-primary));
   text-align: center;
   padding-block: clamp(5rem, 10vw, 10rem);
   position: relative;

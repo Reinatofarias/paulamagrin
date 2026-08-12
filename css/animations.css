@@ -67,6 +67,28 @@
   50% { opacity: 0.7; }
 }
 
+@keyframes brandFloat {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.22));
+  }
+  50% {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 16px 28px rgba(184, 149, 106, 0.22));
+  }
+}
+
+@keyframes softReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ─── Hero Entrance ─── */
 
 .hero__content > * {
@@ -83,7 +105,11 @@
 
 .hero__media-wrapper {
   opacity: 0;
-  animation: fadeIn var(--duration-slowest) var(--ease-gentle) 400ms forwards;
+  animation: softReveal var(--duration-slowest) var(--ease-premium) 400ms forwards;
+}
+
+.header__logo {
+  animation: brandFloat 5.5s var(--ease-gentle) 900ms infinite;
 }
 
 /* ─── Scroll Entrance Classes ─── */
@@ -205,7 +231,8 @@
   }
 
   .hero__content > *,
-  .hero__media-wrapper {
+  .hero__media-wrapper,
+  .header__logo {
     opacity: 1;
     animation: none;
   }
