@@ -787,7 +787,7 @@
 .header__container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
@@ -804,12 +804,6 @@
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.22));
-}
-
-.header__btn {
-  min-height: 40px !important;
-  padding: 0 var(--space-xl) !important;
-  font-size: var(--text-sm) !important;
 }
 
 .hero .btn-cta {

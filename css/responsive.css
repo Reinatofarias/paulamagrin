@@ -5,12 +5,6 @@
 /* ─── Mobile Small Custom Overrides (≤ 640px) ─── */
 
 @media (max-width: 640px) {
-  .header__btn {
-    display: none !important;
-  }
-  .header__container {
-    justify-content: center;
-  }
   .header {
     height: 92px;
   }
