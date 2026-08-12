@@ -118,20 +118,22 @@
             </div>
           </div>
 
-          <figure class="hero__media-wrapper hero__media-wrapper--portrait" aria-label="Retrato de Paula Magrin">
-            <img
-              class="hero__portrait"
-              src="images/fotos/Foto%20Paula%2016%20.png"
-              alt="Paula Magrin, terapeuta"
-              width="828"
-              height="1129"
-              fetchpriority="high"
+          <div class="hero__media-wrapper" aria-label="Vídeo de apresentação">
+            <video
+              class="hero__video"
+              controls
+              playsinline
+              preload="metadata"
+              poster="images/fotos/Foto%20Paula%2016%20.png"
             >
-            <figcaption class="hero__media-caption">
-              <span class="hero__media-kicker">Paula Magrin</span>
-              <span>Terapeuta em reconstrução de identidade e desenvolvimento humano.</span>
-            </figcaption>
-          </figure>
+              <source src="Depoimentos/depoimento%20em%20v%C3%ADdeo.mp4" type="video/mp4">
+              Seu navegador não suporta vídeo HTML5.
+            </video>
+            <div class="hero__media-caption">
+              <span class="hero__media-kicker">Vídeo</span>
+              <span>Assista a um recorte real antes de iniciar a conversa.</span>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -446,18 +448,6 @@
 
         </div>
 
-        <div class="about__photo-strip animate-on-scroll" aria-label="Retratos de Paula Magrin">
-          <figure class="about__photo about__photo--tall">
-            <img src="images/fotos/Foto%20Paula%205%20.png" alt="Paula Magrin em momento de reflexão" loading="lazy">
-          </figure>
-          <figure class="about__photo">
-            <img src="images/fotos/Foto%20Paula%2014%20.png" alt="Paula Magrin em atendimento online" loading="lazy">
-          </figure>
-          <figure class="about__photo about__photo--tall">
-            <img src="images/fotos/Foto%20Paula%201%20.PNG" alt="Retrato profissional de Paula Magrin" loading="lazy">
-          </figure>
-        </div>
-
       </div>
     </section>
 
@@ -607,23 +597,6 @@
 
         <div class="social-proof__intro animate-on-scroll">
           <p>Depoimentos reais recebidos em conversas e áudios. Os prints preservam o formato original para manter a prova social fiel ao que foi enviado.</p>
-        </div>
-
-        <div class="testimonial-video animate-on-scroll">
-          <video
-            class="testimonial-video__media"
-            controls
-            playsinline
-            preload="metadata"
-            poster="images/fotos/Foto%20Paula%2016%20.png"
-          >
-            <source src="Depoimentos/depoimento%20em%20v%C3%ADdeo.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo HTML5.
-          </video>
-          <div class="testimonial-video__content">
-            <p class="testimonial-video__label">Depoimento em vídeo</p>
-            <p>Um recorte real de quem já viveu o acompanhamento, agora dentro da seção de prova social.</p>
-          </div>
         </div>
 
         <div class="social-proof__grid social-proof__grid--screens" data-stagger>

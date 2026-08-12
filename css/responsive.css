@@ -62,14 +62,8 @@
   .hero__media-wrapper {
     max-width: min(100%, 280px);
   }
-  .about__photo-strip {
-    gap: var(--space-sm);
-  }
   .hero__media-caption {
     padding: var(--space-sm) var(--space-md);
-  }
-  .testimonial-video {
-    padding: var(--space-md);
   }
   .testimonial-audio {
     padding: var(--space-md);
@@ -99,11 +93,6 @@
   /* Hero image larger */
   .hero__media-wrapper {
     max-width: 380px;
-  }
-
-  .about__photo-strip {
-    grid-template-columns: 0.9fr 1.2fr 0.9fr;
-    align-items: end;
   }
 }
 
@@ -135,11 +124,6 @@
   .testimonial-audio {
     grid-template-columns: minmax(180px, 0.7fr) minmax(260px, 1fr);
   }
-
-  .testimonial-video {
-    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
-    padding: var(--space-xl);
-  }
 }
 
 /* ─── Desktop (≥ 1024px) ─── */
@@ -159,11 +143,7 @@
 
   .hero__media-wrapper {
     order: 1;
-    max-width: 440px;
-  }
-
-  .hero__portrait {
-    aspect-ratio: 4 / 5.35;
+    max-width: 390px;
   }
 
   .hero {
