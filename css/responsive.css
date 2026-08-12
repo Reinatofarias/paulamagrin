@@ -5,6 +5,21 @@
 /* ─── Mobile Small Custom Overrides (≤ 640px) ─── */
 
 @media (max-width: 640px) {
+  .hero::after,
+  .reconstruction::before,
+  .about::after,
+  .final-cta::before {
+    width: 120vw;
+    height: 48px;
+  }
+  .identification__transition {
+    margin-left: 0;
+    padding: var(--space-lg);
+  }
+  .reframe__inner::before {
+    right: 0;
+    width: 72px;
+  }
   .header {
     height: 92px;
   }
