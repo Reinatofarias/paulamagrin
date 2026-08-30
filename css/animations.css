@@ -70,11 +70,9 @@
 @keyframes brandFloat {
   0%, 100% {
     transform: translateY(0);
-    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.22));
   }
   50% {
     transform: translateY(-3px);
-    filter: drop-shadow(0 16px 28px rgba(184, 149, 106, 0.22));
   }
 }
 

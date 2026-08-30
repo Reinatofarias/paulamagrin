@@ -57,25 +57,12 @@
   z-index: 2;
 }
 
-.hero__content::before {
-  content: 'PM';
-  display: block;
-  width: fit-content;
-  margin-bottom: var(--space-xs);
-  padding-bottom: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, min(4vw, 6vh), 3.6rem);
-  font-weight: var(--weight-light);
-  line-height: 0.9;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: var(--color-text-inverse);
-  border-bottom: none;
-}
 
 .hero__headline {
-  font-size: clamp(3rem, min(5.2vw, 10.8vh), 5.8rem);
-  line-height: 0.92;
+  font-family: var(--font-hero);
+  font-size: clamp(2.9rem, min(4.8vw, 9.8vh), 5.25rem);
+  line-height: 1.08;
+  word-spacing: 0.03em;
   margin-bottom: var(--space-lg);
   max-width: 760px;
   overflow-wrap: normal;
@@ -83,7 +70,7 @@
   hyphens: none;
   color: var(--color-text-inverse);
   text-transform: uppercase;
-  font-weight: var(--weight-medium);
+  font-weight: 500;
 }
 
 .hero__headline em {
@@ -327,17 +314,7 @@
 }
 
 .processo::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: -1px;
-  width: min(92vw, 1180px);
-  height: clamp(56px, 7vw, 96px);
-  pointer-events: none;
-  transform: translateX(-50%);
-  background: var(--color-surface-paper);
-  border-radius: 0;
-  z-index: 0;
+  content: none;
 }
 
 .processo__inner {
@@ -569,7 +546,7 @@
   background: var(--color-bg-primary);
   border: 1px solid rgba(37, 20, 15, 0.22);
   border-radius: 0;
-  box-shadow: 0 22px 52px rgba(37, 20, 15, 0.18);
+  box-shadow: none;
   overflow: hidden;
 }
 

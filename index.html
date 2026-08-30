@@ -30,16 +30,16 @@
   <!-- Preload Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/tokens.css?v=2.1">
+  <link rel="stylesheet" href="css/tokens.css?v=2.2">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/base.css?v=2.1">
   <link rel="stylesheet" href="css/components.css?v=2.1">
   <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/sections.css?v=2.1">
-  <link rel="stylesheet" href="css/responsive.css?v=2.1">
+  <link rel="stylesheet" href="css/sections.css?v=2.2">
+  <link rel="stylesheet" href="css/responsive.css?v=2.2">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -69,7 +69,15 @@
       <a href="#hero" class="header__logo-link" aria-label="Ir para o início">
         <img class="header__logo" src="images/logo/logo dourada.png" alt="Paula Magrin">
       </a>
-      <nav class="header__nav" aria-label="Navegação principal">
+      
+      <!-- Hamburger Toggle -->
+      <button type="button" class="header__toggle" aria-label="Menu" aria-expanded="false" aria-controls="header-nav">
+        <span class="header__toggle-line"></span>
+        <span class="header__toggle-line"></span>
+        <span class="header__toggle-line"></span>
+      </button>
+
+      <nav class="header__nav" id="header-nav" aria-label="Navegação principal">
         <a href="#sessao-clareza">Sessão Clareza</a>
         <a href="#depoimentos">Depoimentos</a>
         <button type="button" data-open-modal data-cta-location="header">Conversar</button>

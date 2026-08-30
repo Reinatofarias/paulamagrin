@@ -10,7 +10,9 @@
 
   function init() {
     initFloatingCTA();
+    initMobileMenu();
     initSmoothScroll();
+    initScrollHistory();
     initScrollAnimations();
     initFAQ();
     initModal();
@@ -77,6 +79,96 @@
         }
       });
     });
+  }
+
+  /* ═══════════════════════════════════════════════════
+     MOBILE MENU TOGGLE
+     ═══════════════════════════════════════════════════ */
+
+  function initMobileMenu() {
+    var toggleBtn = document.querySelector('.header__toggle');
+    var nav = document.querySelector('.header__nav');
+    var header = document.querySelector('.header');
+    if (!toggleBtn || !nav || !header) return;
+
+    toggleBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('is-active');
+      header.classList.toggle('is-menu-open');
+    });
+
+    // Close menu when clicking on a link
+    nav.querySelectorAll('a, button').forEach(function (element) {
+      element.addEventListener('click', function () {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-active');
+        header.classList.remove('is-menu-open');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('is-active') && !nav.contains(e.target) && !toggleBtn.contains(e.target)) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-active');
+        header.classList.remove('is-menu-open');
+      }
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════
+     SCROLL HISTORY (SCROLL SPY)
+     ═══════════════════════════════════════════════════ */
+
+  function initScrollHistory() {
+    var sections = document.querySelectorAll('section[id]');
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+
+    var observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -50% 0px', // Trigger when section is in the middle third
+      threshold: 0
+    };
+
+    var activeSectionId = '';
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          if (id && id !== activeSectionId) {
+            activeSectionId = id;
+            
+            // Update URL hash quietly without jumping
+            if (history.replaceState) {
+              history.replaceState(null, null, '#' + id);
+            } else {
+              window.location.hash = id;
+            }
+
+            // Sync menu active state highlighting
+            updateActiveNavLink(id);
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+
+    function updateActiveNavLink(id) {
+      document.querySelectorAll('.header__nav a').forEach(function (link) {
+        var href = link.getAttribute('href');
+        if (href === '#' + id) {
+          link.classList.add('is-active');
+        } else {
+          link.classList.remove('is-active');
+        }
+      });
+    }
   }
 
   /* ═══════════════════════════════════════════════════

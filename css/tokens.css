@@ -64,6 +64,7 @@
   --color-overlay: rgba(42, 35, 32, 0.6);
 
   /* ─── Font Families ─── */
+  --font-hero: 'Bodoni Moda', 'Didot', 'Bodoni 72', 'Cormorant Garamond', serif;
   --font-display: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
   --font-body: 'Manrope', 'Segoe UI', 'Helvetica Neue', sans-serif;
 

@@ -27,12 +27,63 @@
     height: 46px;
     max-width: 130px;
   }
+  
+  /* Mobile Hamburger Navigation overlay */
+  .header__toggle {
+    display: flex;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 68px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 68px);
+    height: calc(100dvh - 68px);
+    background: rgba(23, 13, 10, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-2xl) var(--space-xl);
+    transition: right var(--duration-base) var(--ease-premium);
+    z-index: calc(var(--z-sticky) + 1);
+    border-top: 1px solid rgba(244, 247, 238, 0.08);
+  }
+
+  .header__nav.is-active {
+    right: 0;
+  }
+
   .header__nav a {
-    display: none;
+    display: block !important;
+    font-size: var(--text-lg) !important;
+    padding: var(--space-xs) 0;
   }
+
   .header__nav button {
-    font-size: 0.7rem;
+    font-size: var(--text-base) !important;
+    margin-top: var(--space-md);
+    padding: var(--space-md) var(--space-3xl) !important;
+    border: 1.5px solid var(--color-gold) !important;
+    border-radius: var(--radius-full) !important;
+    background: transparent !important;
+    color: var(--color-gold-light) !important;
   }
+
+  /* Hamburger to X animations */
+  .header.is-menu-open .header__toggle-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .header.is-menu-open .header__toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+  .header.is-menu-open .header__toggle-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .hero {
     min-height: 100svh;
     padding-top: 68px;
@@ -174,7 +225,7 @@
 
   /* Hero headline larger */
   .hero__headline {
-    font-size: clamp(4rem, min(5.2vw, 10.8vh), 5.8rem);
+    font-size: clamp(3.8rem, min(4.8vw, 9.8vh), 5.25rem);
   }
 
   /* Identification headline centered or wider */
