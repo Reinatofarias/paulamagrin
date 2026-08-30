@@ -18,6 +18,8 @@
     initModal();
     initForm();
     initTracking();
+    initCoverflowCarousel();
+    initLightbox();
   }
 
   /* ═══════════════════════════════════════════════════
@@ -524,5 +526,210 @@
 
   // Expose pushDataLayer globally
   window.pushDataLayer = pushDataLayer;
+
+  /* ═══════════════════════════════════════════════════
+     3D COVERFLOW CAROUSEL
+     ═══════════════════════════════════════════════════ */
+
+  function initCoverflowCarousel() {
+    var track = document.getElementById('coverflow-track');
+    if (!track) return;
+
+    var slides = Array.from(track.querySelectorAll('.coverflow-slide'));
+    if (!slides.length) return;
+
+    var prevBtn = document.querySelector('.coverflow-prev');
+    var nextBtn = document.querySelector('.coverflow-next');
+    var dotsContainer = document.getElementById('coverflow-dots');
+    var currentIndex = Math.floor(slides.length / 2); // Start near the middle or index 0
+
+    // Create pagination dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach(function (_, idx) {
+        var dot = document.createElement('button');
+        dot.className = 'coverflow-dot' + (idx === currentIndex ? ' is-active' : '');
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('aria-label', 'Ir para depoimento ' + (idx + 1));
+        dot.addEventListener('click', function () {
+          goToSlide(idx);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateCarousel() {
+      var isMobile = window.innerWidth < 640;
+      var spacing = isMobile ? 100 : 150;
+      var scaleStep = isMobile ? 0.14 : 0.13;
+      var rotStep = isMobile ? 12 : 18;
+
+      slides.forEach(function (slide, idx) {
+        var diff = idx - currentIndex;
+        var absDiff = Math.abs(diff);
+
+        if (absDiff > 3) {
+          // Hide far away slides to keep DOM light
+          slide.style.opacity = '0';
+          slide.style.pointerEvents = 'none';
+          slide.style.transform = 'translateX(0) scale(0.4) translateZ(-400px)';
+          slide.classList.remove('is-center', 'is-prev', 'is-next');
+          return;
+        }
+
+        slide.style.pointerEvents = 'auto';
+        slide.classList.remove('is-center', 'is-prev', 'is-next');
+
+        if (diff === 0) {
+          // Center active slide
+          slide.classList.add('is-center');
+          slide.style.zIndex = '10';
+          slide.style.opacity = '1';
+          slide.style.transform = 'translateX(0px) scale(1) translateZ(0px) rotateY(0deg)';
+        } else {
+          // Side stacked slides
+          var direction = diff > 0 ? 1 : -1;
+          var xShift = diff * spacing;
+          var scale = Math.max(0.65, 1 - absDiff * scaleStep);
+          var zShift = -absDiff * 110;
+          var rotY = -direction * rotStep;
+          var opacity = Math.max(0.25, 1 - absDiff * 0.32);
+
+          if (diff === -1) slide.classList.add('is-prev');
+          if (diff === 1) slide.classList.add('is-next');
+
+          slide.style.zIndex = String(10 - absDiff);
+          slide.style.opacity = String(opacity);
+          slide.style.transform = 'translateX(' + xShift + 'px) scale(' + scale + ') translateZ(' + zShift + 'px) rotateY(' + rotY + 'deg)';
+        }
+      });
+
+      // Update dots
+      if (dotsContainer) {
+        var dots = dotsContainer.querySelectorAll('.coverflow-dot');
+        dots.forEach(function (dot, idx) {
+          if (idx === currentIndex) {
+            dot.classList.add('is-active');
+          } else {
+            dot.classList.remove('is-active');
+          }
+        });
+      }
+    }
+
+    function goToSlide(index) {
+      if (index < 0) {
+        currentIndex = slides.length - 1;
+      } else if (index >= slides.length) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+      updateCarousel();
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        goToSlide(currentIndex - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        goToSlide(currentIndex + 1);
+      });
+    }
+
+    // Click on side slide to make it center, or click center to open lightbox
+    slides.forEach(function (slide, idx) {
+      slide.addEventListener('click', function () {
+        if (idx !== currentIndex) {
+          goToSlide(idx);
+        } else {
+          var img = slide.querySelector('img');
+          if (img && img.src) {
+            openLightbox(img.src);
+          }
+        }
+      });
+    });
+
+    // Touch / Swipe gestures
+    var startX = 0;
+    var currentX = 0;
+    var isDragging = false;
+
+    track.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', function (e) {
+      if (!isDragging) return;
+      currentX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function () {
+      if (!isDragging) return;
+      var diff = startX - currentX;
+      if (Math.abs(diff) > 35) {
+        if (diff > 0) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(currentIndex - 1);
+        }
+      }
+      isDragging = false;
+    });
+
+    // Window resize handler
+    window.addEventListener('resize', function () {
+      updateCarousel();
+    });
+
+    // Initial positioning
+    updateCarousel();
+  }
+
+  /* ═══════════════════════════════════════════════════
+     LIGHTBOX MODAL
+     ═══════════════════════════════════════════════════ */
+
+  function openLightbox(src) {
+    var modal = document.getElementById('lightbox-modal');
+    var img = document.getElementById('lightbox-img');
+    if (!modal || !img) return;
+
+    img.src = src;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function initLightbox() {
+    var modal = document.getElementById('lightbox-modal');
+    var closeBtn = document.getElementById('lightbox-close');
+    if (!modal) return;
+
+    function close() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', close);
+    }
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        close();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        close();
+      }
+    });
+  }
 
 })();

@@ -577,37 +577,110 @@
           <p>Depoimentos reais recebidos em conversas e áudios. A prova social preserva o formato original para manter a confiança de quem compartilhou sua experiência.</p>
         </div>
 
-        <div class="social-proof__grid social-proof__grid--screens" data-stagger>
+        <!-- 3D Coverflow Carousel for Image Testimonials -->
+        <div class="coverflow-wrapper animate-on-scroll" aria-label="Carrossel de depoimentos em imagem">
+          <div class="coverflow-container">
+            <div class="coverflow-track" id="coverflow-track">
+              <div class="coverflow-slide" data-index="0">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2026-05-18-16-32-37.jpg" alt="Print de depoimento sobre reconstrução e clareza" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="1">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2025-12-25-19-35-11.jpg" alt="Print de mensagem de agradecimento" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="2">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2025-11-13-12-45-44.jpg" alt="Print de depoimento sobre limites na rotina" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="3">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2026-02-11-15-09-18.jpg" alt="Print de depoimento sobre sessão clareza" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="4">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2025-10-16-07-13-13.jpg" alt="Print de depoimento sobre posicionamento" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="5">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-10-29-07-32-13.jpg" alt="Print de relato de cliente empresária" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="6">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-10-29-07-29-38.jpg" alt="Print de mensagem enviada via WhatsApp" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="7">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-10-29-07-26-53.jpg" alt="Print de mensagem sobre transformação" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="8">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-05-28-21-37-13.jpg" alt="Print de depoimento sobre liderança" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="9">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-05-28-21-31-56.jpg" alt="Print de relato sobre presença" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="10">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-05-28-21-26-52.jpg" alt="Print de mensagem de cliente" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="11">
+                <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2024-05-28-21-19-17.jpg" alt="Print de depoimento sobre autonomia" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="12">
+                <img src="Depoimentos/Depoimentos%20escritos/WhatsApp%20Image%202025-07-14%20at%2014.43.47%20(2).jpeg" alt="Print de conversa no WhatsApp" loading="lazy">
+              </div>
+              <div class="coverflow-slide" data-index="13">
+                <img src="Depoimentos/Depoimentos%20escritos/WhatsApp%20Image%202025-07-14%20at%2014.43.47.jpeg" alt="Print de depoimento real de empresária" loading="lazy">
+              </div>
+            </div>
 
-          <figure class="testimonial-media animate-on-scroll">
-            <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2026-05-18-16-32-37.jpg" alt="Print de depoimento enviado por cliente" loading="lazy">
-          </figure>
+            <!-- Controls -->
+            <button type="button" class="coverflow-nav coverflow-prev" aria-label="Depoimento anterior">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="coverflow-nav coverflow-next" aria-label="Próximo depoimento">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
 
-          <figure class="testimonial-media animate-on-scroll">
-            <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2025-12-25-19-35-11.jpg" alt="Print de mensagem de agradecimento enviada por cliente" loading="lazy">
-          </figure>
-
-          <figure class="testimonial-media animate-on-scroll">
-            <img src="Depoimentos/Depoimentos%20escritos/PHOTO-2025-11-13-12-45-44.jpg" alt="Print de depoimento escrito enviado por cliente" loading="lazy">
-          </figure>
-
+            <!-- Dots -->
+            <div class="coverflow-dots" id="coverflow-dots"></div>
+          </div>
+          <p class="coverflow-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg> Clique no depoimento para ampliar em tela cheia</p>
         </div>
 
+        <!-- Spoken Audio Testimonials List -->
+        <h3 class="social-proof__subheadline animate-on-scroll">Depoimentos em Áudio</h3>
         <div class="testimonial-audio-list animate-on-scroll" aria-label="Depoimentos em áudio">
+
           <article class="testimonial-audio">
-            <div>
-              <p class="testimonial-audio__title">Depoimento em áudio</p>
-              <p class="testimonial-audio__meta">Enviado por WhatsApp</p>
+            <div class="testimonial-audio__info">
+              <p class="testimonial-audio__title">Relato de Reconstrução e Posicionamento</p>
+              <p class="testimonial-audio__meta">Áudio enviado por WhatsApp · Empresária</p>
             </div>
             <audio controls preload="none" src="Depoimentos/Depoimentos%20falados/AUDIO-2026-07-02-11-20-08.m4a"></audio>
           </article>
 
           <article class="testimonial-audio">
-            <div>
-              <p class="testimonial-audio__title">Depoimento em áudio</p>
-              <p class="testimonial-audio__meta">Enviado por WhatsApp</p>
+            <div class="testimonial-audio__info">
+              <p class="testimonial-audio__title">Experiência e Mudança na Condução Terapêutica</p>
+              <p class="testimonial-audio__meta">Áudio enviado por WhatsApp · Empresária</p>
             </div>
             <audio controls preload="none" src="Depoimentos/Depoimentos%20falados/AUDIO-2024-06-19-09-42-24.m4a"></audio>
+          </article>
+
+          <article class="testimonial-audio">
+            <div class="testimonial-audio__info">
+              <p class="testimonial-audio__title">Clareza Emocional e Tomada de Decisão</p>
+              <p class="testimonial-audio__meta">Áudio enviado por WhatsApp · Empresária</p>
+            </div>
+            <audio controls preload="none" src="Depoimentos/Depoimentos%20falados/AUDIO-2024-05-28-13-31-48.m4a"></audio>
+          </article>
+
+          <article class="testimonial-audio">
+            <div class="testimonial-audio__info">
+              <p class="testimonial-audio__title">Transformação da Rotina e Estabelecimento de Limites</p>
+              <p class="testimonial-audio__meta">Áudio enviado por WhatsApp · Empresária</p>
+            </div>
+            <audio controls preload="none" src="Depoimentos/Depoimentos%20falados/AUDIO-2024-05-28-13-31-20.m4a"></audio>
+          </article>
+
+          <article class="testimonial-audio">
+            <div class="testimonial-audio__info">
+              <p class="testimonial-audio__title">Presença, Autonomia e Resultados Sustentáveis</p>
+              <p class="testimonial-audio__meta">Áudio enviado por WhatsApp · Empresária</p>
+            </div>
+            <audio controls preload="none" src="Depoimentos/Depoimentos%20falados/AUDIO-2023-08-09-07-20-08.m4a"></audio>
           </article>
 
         </div>
@@ -850,6 +923,12 @@
         <p class="cta-microcopy" style="margin-top: var(--space-lg);">A equipe retornará pelo WhatsApp informado no formulário.</p>
       </div>
 
+    </div>
+  <!-- Lightbox Modal for Testimonial Images -->
+  <div class="lightbox-overlay" id="lightbox-modal" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fechar visualização">&times;</button>
+      <img id="lightbox-img" src="" alt="Depoimento em tela cheia">
     </div>
   </div>
 
