@@ -195,6 +195,16 @@
 [data-stagger] > .animate-on-scroll:nth-child(8),
 [data-stagger] > .animate-slide-right:nth-child(8) { transition-delay: 840ms; }
 
+/* Reset transition delay on exit so reverse animations trigger immediately when scrolling back up */
+.animate-on-scroll:not(.is-visible),
+.animate-slide-right:not(.is-visible),
+.animate-slide-left:not(.is-visible),
+.animate-scale:not(.is-visible),
+.animate-fade:not(.is-visible),
+.line-draw:not(.is-visible) {
+  transition-delay: 0ms !important;
+}
+
 /* ─── Decorative Line Draw ─── */
 
 .line-draw {

@@ -186,17 +186,30 @@
       return;
     }
 
+    var observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05
+    };
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
+        var rect = entry.boundingClientRect;
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
         if (entry.isIntersecting) {
+          // Entering or in viewport: animate in
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+        } else {
+          // Exited viewport: only remove is-visible if exiting through the BOTTOM of the viewport
+          // (user scrolled back up past the element).
+          // Do NOT remove if it exited past the TOP of the screen (rect.top < 0 - user scrolling down).
+          if (rect.top > 0 && rect.top >= windowHeight - 80) {
+            entry.target.classList.remove('is-visible');
+          }
         }
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
+    }, observerOptions);
 
     document.querySelectorAll('.animate-on-scroll, .animate-slide-right, .animate-slide-left, .animate-scale, .animate-fade, .line-draw').forEach(function (el) {
       observer.observe(el);
