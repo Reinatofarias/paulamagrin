@@ -6,16 +6,16 @@
 
 :root {
   /* ─── Background Colors ─── */
-  --color-bg-primary: #FCFAF7;
-  --color-bg-secondary: #F6ECE0;
-  --color-bg-tertiary: #ECDDCB;
-  --color-bg-accent: #E2CFB9;
-  --color-bg-dark: #211815;
-  --color-bg-dark-rich: #16100E;
-  --color-bg-warm: #2A1E1B;
-  --color-surface-paper: #FAF4EB;
-  --color-surface-linen: #F1E5D6;
-  --color-surface-mist: #E8D7C2;
+  --color-bg-primary: #F4F7EE;
+  --color-bg-secondary: #E7EFE1;
+  --color-bg-tertiary: #D8E1D1;
+  --color-bg-accent: #E8D7C2;
+  --color-bg-dark: #25140F;
+  --color-bg-dark-rich: #170D0A;
+  --color-bg-warm: #6F2E1F;
+  --color-surface-paper: #FAF1E6;
+  --color-surface-linen: #EDF4E8;
+  --color-surface-mist: #DDE7D8;
   --color-surface-ink: #1C1310;
   --color-surface-cacao: #2B1D19;
 
@@ -27,11 +27,11 @@
   --color-text-accent: #D4AF37;
 
   /* ─── Brand Colors (from logo) ─── */
-  --color-brown-dark: #211815;
-  --color-brown-rich: #16100E;
-  --color-brown-medium: #584A42;
-  --color-brown-warm: #2A1E1B;
-  --color-brown-light: #6E5A50;
+  --color-brown-dark: #25140F;
+  --color-brown-rich: #170D0A;
+  --color-brown-medium: #5A3328;
+  --color-brown-warm: #6F2E1F;
+  --color-brown-light: #7E3B2B;
   --color-gold: #D4AF37;
   --color-gold-light: #F3E7C4;
   --color-gold-muted: #B5944A;
@@ -40,9 +40,9 @@
 
   /* ─── Brand Palette (from usage) ─── */
   --color-cream: #EDE5D9;
-  --color-terracotta: #C85B28;
-  --color-terracotta-light: #DF713F;
-  --color-terracotta-dark: #A34215;
+  --color-terracotta: #C45C42;
+  --color-terracotta-light: #DD7458;
+  --color-terracotta-dark: #8E321F;
   --color-olive: #6E7A42;
   --color-olive-light: #8A9958;
   --color-olive-dark: #555E30;
@@ -165,9 +165,9 @@
   --glass-shadow: 0 8px 32px 0 rgba(33, 24, 21, 0.05);
   --glass-backdrop: blur(20px);
   --gradient-gold: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 50%, #AA7C11 100%);
-  --gradient-hero: linear-gradient(112deg, #16100E 0%, #211815 52%, #3E2D27 100%);
-  --gradient-paper: linear-gradient(135deg, #FCFAF7 0%, #F5E8D9 48%, #ECD5C0 100%);
-  --gradient-band: linear-gradient(135deg, #FAF4EB 0%, #ECD8C3 100%);
+  --gradient-hero: linear-gradient(112deg, #24110D 0%, #642719 58%, #2A130F 100%);
+  --gradient-paper: linear-gradient(180deg, #EAF2E4 0%, #F5F8EF 100%);
+  --gradient-band: linear-gradient(180deg, #F5F8EF 0%, #E7EFE1 100%);
 }
 
 @media (max-width: 640px) {

@@ -14,7 +14,7 @@ body {
   line-height: var(--leading-normal);
   color: var(--color-text-primary);
   background:
-    radial-gradient(circle at 8% 0%, rgba(184, 149, 106, 0.08), transparent 32rem),
+    radial-gradient(circle at 8% 0%, rgba(196, 92, 66, 0.08), transparent 32rem),
     linear-gradient(180deg, var(--color-bg-primary), var(--color-surface-paper));
 }
 
@@ -124,11 +124,10 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.34;
+  opacity: 0.32;
   background-image:
-    linear-gradient(rgba(184, 149, 106, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 149, 106, 0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
+    radial-gradient(circle, rgba(126, 59, 43, 0.18) 1px, transparent 1.2px);
+  background-size: 18px 18px;
   mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
 }
 
@@ -161,6 +160,8 @@ a {
 
 .section__headline {
   margin-bottom: var(--space-lg);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
 }
 
 .section__headline em {
