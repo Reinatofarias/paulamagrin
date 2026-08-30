@@ -297,10 +297,9 @@
     }
 
     // Qualification
-    var radioChecked = form.querySelector('[name="momento"]:checked');
-    if (!radioChecked) {
-      var radioGroup = form.querySelector('.form-group--radio');
-      if (radioGroup) radioGroup.classList.add('has-error');
+    var momentoSelect = form.querySelector('[name="momento"]');
+    if (momentoSelect && !momentoSelect.value) {
+      momentoSelect.closest('.form-group').classList.add('has-error');
       isValid = false;
     }
 

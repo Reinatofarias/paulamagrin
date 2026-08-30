@@ -681,7 +681,47 @@
   box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.12);
 }
 
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid var(--color-gold-deep);
+  border-bottom: 1.5px solid var(--color-gold-deep);
+  pointer-events: none;
+  transform: translateY(-65%) rotate(45deg);
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: calc(var(--space-xl) + var(--space-md));
+  background:
+    linear-gradient(135deg, rgba(252, 250, 247, 0.98), rgba(246, 236, 224, 0.72));
+  cursor: pointer;
+}
+
+.form-select:invalid {
+  color: var(--color-text-tertiary);
+}
+
+.form-select option {
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+}
+
 .form-input.has-error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(184, 84, 80, 0.1);
+}
+
+.form-group.has-error .form-input {
   border-color: var(--color-error);
   box-shadow: 0 0 0 3px rgba(184, 84, 80, 0.1);
 }
