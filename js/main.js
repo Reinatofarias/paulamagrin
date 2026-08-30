@@ -21,6 +21,7 @@
     initCoverflowCarousel();
     initLightbox();
     initAudioPlayers();
+    initHeroVideoHover();
   }
 
   /* ═══════════════════════════════════════════════════
@@ -838,6 +839,39 @@
       var secs = Math.floor(seconds % 60);
       return mins + ':' + (secs < 10 ? '0' : '') + secs;
     }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     HERO VIDEO HOVER AUTOPLAY
+     ═══════════════════════════════════════════════════ */
+
+  function initHeroVideoHover() {
+    var videoWrapper = document.querySelector('.hero__media-wrapper');
+    var video = document.getElementById('hero-video');
+    if (!videoWrapper || !video) return;
+
+    videoWrapper.addEventListener('mouseenter', function () {
+      video.play().catch(function () {
+        // Handle browser autoplay policy gracefully
+      });
+    });
+
+    videoWrapper.addEventListener('mouseleave', function () {
+      if (!video.paused) {
+        video.pause();
+      }
+    });
+
+    videoWrapper.addEventListener('click', function (e) {
+      if (e.target !== video) {
+        if (video.paused) {
+          video.muted = false;
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    });
   }
 
 })();

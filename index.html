@@ -97,24 +97,45 @@
       <div class="ambient-glow ambient-glow--gold" style="top: -10%; left: -10%;"></div>
       <div class="ambient-glow ambient-glow--terracotta" style="bottom: 10%; right: -15%;"></div>
       <div class="container">
-        <div class="hero__grid">
+        <div class="hero__stacked-wrapper">
 
-          <div class="hero__content">
-            <h1 class="hero__headline">
-              Seu negócio<br>
-              exige força.<br>
-              <em>E você?</em>
-            </h1>
+          <!-- 1. TITLE -->
+          <h1 class="hero__headline">
+            Seu negócio<br>
+            exige força.<br>
+            <em>E você?</em>
+          </h1>
 
+          <!-- 2. VIDEO -->
+          <div class="hero__media-wrapper" aria-label="Vídeo de apresentação">
+            <video
+              class="hero__video"
+              id="hero-video"
+              controls
+              playsinline
+              muted
+              preload="metadata"
+            >
+              <source src="Depoimentos/depoimento%20em%20v%C3%ADdeo.mp4" type="video/mp4">
+              Seu navegador não suporta vídeo HTML5.
+            </video>
+            <div class="hero__media-caption">
+              <span class="hero__media-kicker">PAULA MAGRIN</span>
+              <span>Um recorte real para sentir a condução antes da primeira conversa.</span>
+            </div>
+          </div>
+
+          <!-- 3. DESCRIPTION & CTA -->
+          <div class="hero__description-wrapper">
             <p class="hero__subheadline">
               Terapia para mulheres empresárias que vivem sob alta responsabilidade e precisam reconstruir limites, clareza emocional e presença sem abandonar a própria identidade.
             </p>
 
-            <p class="hero__complement" style="color: rgba(250, 247, 243, 0.65); font-size: var(--text-base); line-height: var(--leading-normal); margin-bottom: var(--space-xl); max-width: 520px;">
+            <p class="hero__complement">
               Um espaço confidencial para organizar o que pesa, entender padrões que se repetem na liderança e tomar decisões com mais consciência.
             </p>
 
-            <div>
+            <div class="hero__cta-group">
               <button class="btn-cta btn-cta--large" data-open-modal data-cta-location="hero" id="cta-hero">
                 QUERO CLAREZA AGORA
                 <span class="btn-cta__arrow" aria-hidden="true">→</span>
@@ -129,23 +150,6 @@
                 </svg>
                 <span>Atendimento online · Sigilo para empresárias e líderes</span>
               </div>
-            </div>
-          </div>
-
-          <div class="hero__media-wrapper" aria-label="Vídeo de apresentação">
-            <video
-              class="hero__video"
-              controls
-              playsinline
-              preload="metadata"
-              poster="images/fotos/Foto%20Paula%2016%20.png"
-            >
-              <source src="Depoimentos/depoimento%20em%20v%C3%ADdeo.mp4" type="video/mp4">
-              Seu navegador não suporta vídeo HTML5.
-            </video>
-            <div class="hero__media-caption">
-              <span class="hero__media-kicker">PAULA MAGRIN</span>
-              <span>Um recorte real para sentir a condução antes da primeira conversa.</span>
             </div>
           </div>
 
