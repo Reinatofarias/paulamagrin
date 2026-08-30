@@ -7,17 +7,17 @@
 
 .hero {
   position: relative;
-  min-height: 112svh;
+  min-height: 100svh;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   background:
     radial-gradient(circle at 84% 18%, rgba(221, 116, 88, 0.16), transparent 28rem),
     radial-gradient(circle at 78% 86%, rgba(212, 175, 55, 0.09), transparent 24rem),
     var(--gradient-hero),
     var(--color-bg-dark-rich);
   overflow: hidden;
-  padding-top: 88px;
-  padding-bottom: clamp(5rem, 10vw, 9rem);
+  padding-top: 76px;
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
 }
 
 .hero::after {
@@ -37,22 +37,22 @@
 
 .hero > .container {
   display: flex;
-  align-items: stretch;
+  align-items: center;
 }
 
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3xl);
-  align-items: end;
+  align-items: center;
   width: 100%;
 }
 
 .hero__content {
   order: 0;
   min-width: 0;
-  align-self: end;
-  padding-top: clamp(10rem, 22vh, 19rem);
+  align-self: center;
+  padding-top: clamp(0rem, 2vh, 1rem);
   position: relative;
   z-index: 2;
 }
@@ -64,7 +64,7 @@
   margin-bottom: var(--space-xs);
   padding-bottom: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-size: clamp(2.2rem, min(4vw, 6vh), 3.6rem);
   font-weight: var(--weight-light);
   line-height: 0.9;
   letter-spacing: 0;
@@ -74,7 +74,7 @@
 }
 
 .hero__headline {
-  font-size: clamp(3.25rem, 5.8vw, 6.1rem);
+  font-size: clamp(3rem, min(5.2vw, 10.8vh), 5.8rem);
   line-height: 0.92;
   margin-bottom: var(--space-lg);
   max-width: 760px;
