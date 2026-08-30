@@ -163,6 +163,13 @@ a {
   margin-bottom: var(--space-lg);
 }
 
+.section__headline em {
+  display: inline-block;
+  margin-top: var(--space-xs);
+  color: var(--color-brown-light);
+  font-weight: var(--weight-light);
+}
+
 .section__headline::after {
   content: '';
   display: block;

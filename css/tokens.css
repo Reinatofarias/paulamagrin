@@ -6,58 +6,58 @@
 
 :root {
   /* ─── Background Colors ─── */
-  --color-bg-primary: #FBF8F4;
-  --color-bg-secondary: #F1E8DC;
-  --color-bg-tertiary: #E8DED1;
-  --color-bg-accent: #DDD0C0;
-  --color-bg-dark: #352C27;
-  --color-bg-dark-rich: #2A2320;
-  --color-bg-warm: #3F3430;
-  --color-surface-paper: #F8F1E8;
-  --color-surface-linen: #EFE3D4;
-  --color-surface-mist: #E7D8C6;
-  --color-surface-ink: #2B211D;
-  --color-surface-cacao: #3C302B;
+  --color-bg-primary: #FCFAF7;
+  --color-bg-secondary: #F6ECE0;
+  --color-bg-tertiary: #ECDDCB;
+  --color-bg-accent: #E2CFB9;
+  --color-bg-dark: #211815;
+  --color-bg-dark-rich: #16100E;
+  --color-bg-warm: #2A1E1B;
+  --color-surface-paper: #FAF4EB;
+  --color-surface-linen: #F1E5D6;
+  --color-surface-mist: #E8D7C2;
+  --color-surface-ink: #1C1310;
+  --color-surface-cacao: #2B1D19;
 
   /* ─── Text Colors ─── */
-  --color-text-primary: #2A2320;
-  --color-text-secondary: #5C504A;
-  --color-text-tertiary: #8C7E76;
-  --color-text-inverse: #FAF7F3;
-  --color-text-accent: #B8956A;
+  --color-text-primary: #1C1310;
+  --color-text-secondary: #584A42;
+  --color-text-tertiary: #84756B;
+  --color-text-inverse: #FCFAF7;
+  --color-text-accent: #D4AF37;
 
   /* ─── Brand Colors (from logo) ─── */
-  --color-brown-dark: #352C27;
-  --color-brown-rich: #2A2320;
-  --color-brown-medium: #5C504A;
-  --color-brown-warm: #3F3430;
-  --color-brown-light: #6B5D55;
-  --color-gold: #B8956A;
-  --color-gold-light: #CBAA82;
-  --color-gold-muted: #A68B66;
-  --color-gold-pale: #D4BFA6;
-  --color-gold-deep: #8E724E;
+  --color-brown-dark: #211815;
+  --color-brown-rich: #16100E;
+  --color-brown-medium: #584A42;
+  --color-brown-warm: #2A1E1B;
+  --color-brown-light: #6E5A50;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E7C4;
+  --color-gold-muted: #B5944A;
+  --color-gold-pale: #F9EFCF;
+  --color-gold-deep: #8E6F2D;
 
   /* ─── Brand Palette (from usage) ─── */
   --color-cream: #EDE5D9;
-  --color-terracotta: #C06530;
-  --color-terracotta-light: #D47842;
-  --color-terracotta-dark: #A85528;
-  --color-olive: #5A6335;
-  --color-olive-light: #6B7544;
-  --color-olive-dark: #4A5229;
-  --color-amber: #CB9440;
-  --color-amber-light: #D9A654;
-  --color-amber-dark: #B58235;
-  --color-teal: #2C5364;
-  --color-teal-light: #3A6B7E;
-  --color-teal-dark: #1F3F4E;
+  --color-terracotta: #C85B28;
+  --color-terracotta-light: #DF713F;
+  --color-terracotta-dark: #A34215;
+  --color-olive: #6E7A42;
+  --color-olive-light: #8A9958;
+  --color-olive-dark: #555E30;
+  --color-amber: #E2A036;
+  --color-amber-light: #F1B54E;
+  --color-amber-dark: #C1811F;
+  --color-teal: #1F4959;
+  --color-teal-light: #2A6277;
+  --color-teal-dark: #15323E;
 
   /* ─── UI Colors ─── */
-  --color-border: #D5C8BB;
-  --color-border-light: #E8E0D8;
-  --color-focus: #B8956A;
-  --color-error: #B85450;
+  --color-border: #DDC8B6;
+  --color-border-light: #EFE0D2;
+  --color-focus: #D4AF37;
+  --color-error: #C9423E;
   --color-error-light: #F5EAEA;
   --color-success: #5A6335;
   --color-success-light: #EDF2EA;
@@ -157,17 +157,17 @@
   --z-modal: 1000;
 
   /* ─── Glassmorphism & Premium Gradients ─── */
-  --glass-bg: rgba(255, 255, 255, 0.42);
-  --glass-bg-dark: rgba(42, 35, 32, 0.45);
-  --glass-bg-teal: rgba(44, 83, 100, 0.3);
-  --glass-border: rgba(255, 255, 255, 0.55);
-  --glass-border-gold: rgba(184, 149, 106, 0.25);
-  --glass-shadow: 0 8px 32px 0 rgba(42, 35, 32, 0.03);
-  --glass-backdrop: blur(16px);
-  --gradient-gold: linear-gradient(135deg, #A68B66 0%, #CB9440 50%, #D4BFA6 100%);
-  --gradient-hero: linear-gradient(112deg, #241B18 0%, #352A26 52%, #51433C 100%);
-  --gradient-paper: linear-gradient(135deg, #FBF8F4 0%, #F4EADF 48%, #E8D9C8 100%);
-  --gradient-band: linear-gradient(135deg, #F8F1E8 0%, #EFE1D1 100%);
+  --glass-bg: rgba(252, 250, 247, 0.45);
+  --glass-bg-dark: rgba(33, 24, 21, 0.5);
+  --glass-bg-teal: rgba(31, 73, 89, 0.35);
+  --glass-border: rgba(252, 250, 247, 0.6);
+  --glass-border-gold: rgba(212, 175, 55, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(33, 24, 21, 0.05);
+  --glass-backdrop: blur(20px);
+  --gradient-gold: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 50%, #AA7C11 100%);
+  --gradient-hero: linear-gradient(112deg, #16100E 0%, #211815 52%, #3E2D27 100%);
+  --gradient-paper: linear-gradient(135deg, #FCFAF7 0%, #F5E8D9 48%, #ECD5C0 100%);
+  --gradient-band: linear-gradient(135deg, #FAF4EB 0%, #ECD8C3 100%);
 }
 
 @media (max-width: 640px) {

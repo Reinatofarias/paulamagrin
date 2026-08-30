@@ -17,8 +17,8 @@
   font-size: var(--text-base);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-wide);
-  color: var(--color-text-inverse);
-  background: var(--color-brown-dark);
+  color: var(--color-bg-dark-rich);
+  background: var(--gradient-gold);
   border: none;
   border-radius: var(--radius-full);
   cursor: pointer;
@@ -28,7 +28,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.22), var(--shadow-sm);
 }
 
 /* Gold Foil Shimmer Hover Effect */
@@ -42,7 +42,7 @@
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.45) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   transform: skewX(-25deg);
@@ -50,9 +50,9 @@
 }
 
 .btn-cta:hover {
-  background: var(--color-brown-warm);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), 0 4px 15px rgba(184, 149, 106, 0.2);
+  background: linear-gradient(135deg, #FFF0D0 0%, #E5C060 50%, #C49221 100%);
+  transform: translateY(-2.5px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.42), 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-cta:hover::before {
@@ -185,11 +185,11 @@
 
 .id-card {
   padding: var(--space-lg) var(--space-xl);
-  background: rgba(251, 248, 244, 0.72);
+  background: linear-gradient(135deg, rgba(252, 250, 247, 0.88) 0%, rgba(246, 236, 224, 0.68) 100%);
   backdrop-filter: var(--glass-backdrop);
   -webkit-backdrop-filter: var(--glass-backdrop);
-  border: 1px solid rgba(184, 149, 106, 0.18);
-  border-left: 4px solid var(--color-gold-pale);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-left: 4.5px solid var(--color-gold);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-md);
   box-shadow: var(--glass-shadow);
@@ -199,18 +199,24 @@
 }
 
 .id-card:hover {
-  border-left-color: var(--color-gold);
-  transform: translateX(4px) translateY(-1px);
-  box-shadow: var(--shadow-md), var(--shadow-gold);
+  border-left-color: var(--color-gold-light);
+  transform: translateX(5px) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.12), 0 4px 12px rgba(33, 24, 21, 0.04);
+}
+
+.id-card__title-h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
 }
 
 .id-card__text {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-regular);
-  font-style: italic;
-  line-height: var(--leading-snug);
-  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
   margin-bottom: 0;
 }
 
@@ -218,8 +224,8 @@
 
 .step-card {
   position: relative;
-  width: min(100%, 220px);
-  min-height: 280px;
+  width: min(100%, 260px);
+  min-height: 300px;
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
   display: flex;
@@ -267,7 +273,7 @@
   font-size: var(--text-base);
   color: rgba(250, 247, 243, 0.7);
   line-height: var(--leading-normal);
-  max-width: 170px;
+  max-width: 210px;
   margin-inline: auto;
 }
 
@@ -830,16 +836,16 @@
 }
 
 .hero .btn-cta {
-  background: var(--color-bg-primary);
-  color: var(--color-brown-rich);
-  border: 1px solid rgba(212, 191, 166, 0.5);
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  background: var(--gradient-gold);
+  color: var(--color-bg-dark-rich);
+  border: none;
+  box-shadow: 0 18px 46px rgba(212, 175, 55, 0.28), 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hero .btn-cta:hover {
-  background: #fff;
-  color: var(--color-brown-rich);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 4px rgba(212, 191, 166, 0.08);
+  background: linear-gradient(135deg, #FFF0D0 0%, #E5C060 50%, #C49221 100%);
+  color: var(--color-bg-dark-rich);
+  box-shadow: 0 24px 60px rgba(212, 175, 55, 0.45), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .hero .cta-microcopy {
