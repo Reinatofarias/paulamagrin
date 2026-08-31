@@ -572,9 +572,11 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-modal-backdrop);
-  background: var(--color-overlay);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background:
+    radial-gradient(circle at 50% 8%, rgba(212, 175, 55, 0.12), transparent 22rem),
+    rgba(18, 9, 7, 0.72);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -592,16 +594,21 @@
 
 .modal {
   width: 100%;
-  max-width: 520px;
+  max-width: 640px;
   max-height: 90vh;
   overflow-y: auto;
-  background: rgba(251, 248, 244, 0.94);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1.5px solid var(--glass-border-gold);
-  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(145deg, rgba(252, 250, 247, 0.94), rgba(241, 231, 220, 0.84)),
+    rgba(252, 250, 247, 0.82);
+  backdrop-filter: blur(26px) saturate(130%);
+  -webkit-backdrop-filter: blur(26px) saturate(130%);
+  border: 1px solid rgba(212, 175, 55, 0.26);
+  border-radius: var(--radius-lg);
   padding: var(--space-2xl);
-  box-shadow: var(--shadow-xl), var(--shadow-gold);
+  box-shadow:
+    0 34px 90px rgba(17, 9, 7, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 0 0 1px rgba(255, 255, 255, 0.26);
   transform: translateY(24px);
   transition: transform var(--duration-slow) var(--ease-premium);
 }
@@ -662,8 +669,8 @@
   padding: 0 var(--space-md);
   font-size: var(--text-base);
   color: var(--color-text-primary);
-  background: var(--color-bg-primary);
-  border: 1.5px solid var(--color-border);
+  background: rgba(255, 252, 248, 0.62);
+  border: 1px solid rgba(126, 59, 43, 0.22);
   border-radius: var(--radius-md);
   transition: border-color var(--duration-fast) var(--ease-gentle),
               box-shadow var(--duration-fast) var(--ease-gentle);
@@ -675,7 +682,7 @@
 
 .form-input:focus {
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.12);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.42);
 }
 
 .select-wrapper {
@@ -838,16 +845,30 @@
 
 /* ─── Header Navigation ─── */
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: rgba(23, 13, 10, 0.9);
-  border-bottom: none;
+  background: linear-gradient(180deg, rgba(23, 13, 10, 0.78), rgba(23, 13, 10, 0.56));
+  border-bottom: 1px solid rgba(243, 231, 196, 0.12);
+  box-shadow: 0 14px 34px rgba(8, 4, 3, 0.16);
+  backdrop-filter: blur(18px) saturate(128%);
+  -webkit-backdrop-filter: blur(18px) saturate(128%);
   height: 76px;
   display: flex;
   align-items: center;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  left: clamp(1.5rem, 3vw, 3rem);
+  right: clamp(1.5rem, 3vw, 3rem);
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.36), transparent);
+  pointer-events: none;
 }
 
 .header__container {
@@ -871,6 +892,7 @@
   width: auto;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.26));
 }
 
 /* ─── Hamburger Toggle ─── */
@@ -931,13 +953,19 @@
 .hero .btn-cta {
   background: rgba(244, 247, 238, 0.96);
   color: var(--color-bg-dark-rich);
-  border: 1px solid rgba(244, 247, 238, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  box-shadow:
+    0 16px 34px rgba(16, 8, 6, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .hero .btn-cta:hover {
   background: #fff;
   color: var(--color-bg-dark-rich);
-  box-shadow: 0 0 0 4px rgba(221, 116, 88, 0.12);
+  box-shadow:
+    0 20px 44px rgba(16, 8, 6, 0.28),
+    0 0 0 4px rgba(221, 116, 88, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
 .hero .cta-microcopy {
@@ -945,9 +973,14 @@
 }
 
 .hero .trust-badge {
-  background: rgba(250, 247, 243, 0.08);
-  border-color: rgba(212, 191, 166, 0.24);
-  color: rgba(250, 247, 243, 0.7);
+  background:
+    linear-gradient(135deg, rgba(250, 247, 243, 0.12), rgba(250, 247, 243, 0.05)),
+    rgba(23, 13, 10, 0.22);
+  border-color: rgba(243, 231, 196, 0.28);
+  color: rgba(250, 247, 243, 0.76);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 28px rgba(12, 6, 5, 0.14);
 }
 
 /* ─── 3D Coverflow Carousel ─── */
@@ -987,8 +1020,8 @@
   cursor: pointer;
   background: #ffffff;
   padding: 6px;
-  border: 1.5px solid rgba(212, 191, 166, 0.4);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(243, 231, 196, 0.48);
+  box-shadow: 0 12px 30px rgba(23, 13, 10, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1012,7 +1045,10 @@
 
 .coverflow-slide.is-center {
   border-color: var(--color-gold);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 22px 54px rgba(23, 13, 10, 0.36),
+    0 0 0 1px rgba(243, 231, 196, 0.28),
+    0 0 28px rgba(212, 175, 55, 0.18);
   filter: brightness(1);
 }
 
@@ -1122,8 +1158,12 @@
 }
 
 .audio-card {
-  background: var(--color-surface-cacao);
-  border: 1px solid rgba(212, 191, 166, 0.28);
+  background:
+    linear-gradient(135deg, rgba(250, 247, 243, 0.08), rgba(250, 247, 243, 0.025)),
+    rgba(30, 16, 12, 0.72);
+  backdrop-filter: blur(18px) saturate(128%);
+  -webkit-backdrop-filter: blur(18px) saturate(128%);
+  border: 1px solid rgba(243, 231, 196, 0.22);
   border-radius: var(--radius-md);
   padding: var(--space-md) var(--space-lg);
   display: flex;
@@ -1138,13 +1178,15 @@
 
 .audio-card:hover {
   transform: translateY(-2px);
-  border-color: var(--color-gold);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(243, 231, 196, 0.42);
+  box-shadow: 0 18px 44px rgba(23, 13, 10, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .audio-card.is-playing {
-  border-color: var(--color-gold);
-  background: rgba(35, 20, 16, 0.98);
+  border-color: rgba(212, 175, 55, 0.64);
+  background:
+    linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(250, 247, 243, 0.03)),
+    rgba(35, 20, 16, 0.82);
 }
 
 .audio-card__play-btn {
@@ -1152,15 +1194,15 @@
   width: 46px;
   height: 46px;
   border-radius: var(--radius-full);
-  background: var(--color-terracotta);
-  border: 1px solid rgba(212, 191, 166, 0.4);
+  background: linear-gradient(135deg, var(--color-terracotta), var(--color-terracotta-dark));
+  border: 1px solid rgba(243, 231, 196, 0.34);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-gentle);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 18px rgba(23, 13, 10, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.16);
   padding: 0;
 }
 
