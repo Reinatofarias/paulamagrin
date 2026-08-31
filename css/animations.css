@@ -89,17 +89,14 @@
 
 /* ─── Hero Entrance ─── */
 
-.hero__content > * {
+.hero__stacked-wrapper > * {
   opacity: 0;
   animation: fadeUp var(--duration-slower) var(--ease-premium) forwards;
 }
 
-.hero__content > *:nth-child(1) { animation-delay: 100ms; }
-.hero__content > *:nth-child(2) { animation-delay: 250ms; }
-.hero__content > *:nth-child(3) { animation-delay: 400ms; }
-.hero__content > *:nth-child(4) { animation-delay: 550ms; }
-.hero__content > *:nth-child(5) { animation-delay: 650ms; }
-.hero__content > *:nth-child(6) { animation-delay: 750ms; }
+.hero__stacked-wrapper > *:nth-child(1) { animation-delay: 100ms; }
+.hero__stacked-wrapper > *:nth-child(2) { animation-delay: 250ms; }
+.hero__stacked-wrapper > *:nth-child(3) { animation-delay: 400ms; }
 
 .hero__media-wrapper {
   opacity: 0;
@@ -238,7 +235,7 @@
     transform: none;
   }
 
-  .hero__content > *,
+  .hero__stacked-wrapper > *,
   .hero__media-wrapper,
   .header__logo {
     opacity: 1;
