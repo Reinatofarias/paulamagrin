@@ -90,8 +90,17 @@
     padding-bottom: var(--space-xl);
     align-items: center;
   }
+  .hero > .container {
+    max-width: 100%;
+    padding-inline: 1rem;
+    justify-content: center;
+  }
   .hero__stacked-wrapper {
     gap: var(--space-lg);
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    align-items: center;
   }
   .hero__description-wrapper,
   .hero__cta-group,
@@ -99,10 +108,13 @@
     width: min(100%, calc(100vw - 2rem));
   }
   .hero__headline {
-    font-size: clamp(2.1rem, 8.2vw, 2.7rem);
+    font-size: clamp(2.05rem, 7.4vw, 2.35rem);
     line-height: 1.02;
     text-wrap: pretty;
-    max-width: min(100%, 13ch);
+    width: 100%;
+    min-width: 0;
+    max-width: calc(100vw - 2rem);
+    margin-inline: auto;
   }
   .hero__subheadline {
     font-size: 1rem;

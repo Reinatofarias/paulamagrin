@@ -663,7 +663,7 @@
         } else {
           var img = slide.querySelector('img');
           if (img && img.src) {
-            openLightbox(img.src);
+            openLightbox(img.dataset.fullSrc || img.currentSrc || img.src);
           }
         }
       });
