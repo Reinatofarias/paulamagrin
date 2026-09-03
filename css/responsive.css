@@ -167,6 +167,33 @@
   .testimonial-audio {
     padding: var(--space-md);
   }
+
+  .sessao-clareza__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+  .sessao-clareza__media {
+    margin-bottom: 0;
+  }
+  .sessao-clareza__photo {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .sessao-clareza__body {
+    align-items: center;
+    text-align: center;
+  }
+  .sessao-clareza__intro-text {
+    text-align: left;
+  }
+  .sessao-clareza__badges-group {
+    justify-content: center;
+  }
+  .sessao-clareza__cta-wrap {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /* ─── Tablet (≥ 640px) ─── */
