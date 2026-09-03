@@ -194,6 +194,27 @@
     display: flex;
     justify-content: center;
   }
+
+  .raiz__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  .raiz__media {
+    order: -1;
+  }
+  .raiz__image-frame {
+    max-width: 270px;
+    margin-inline: auto;
+  }
+  .raiz__content {
+    align-items: center;
+  }
+  .raiz__manifesto {
+    text-align: left;
+    max-width: 520px;
+    margin-inline: auto;
+  }
 }
 
 /* ─── Tablet (≥ 640px) ─── */
