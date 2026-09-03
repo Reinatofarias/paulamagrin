@@ -90,6 +90,11 @@
     padding-bottom: var(--space-xl);
     align-items: center;
   }
+  .hero__bg-photo {
+    background-size: min(100vw, 480px);
+    background-position: center 8%;
+    opacity: 0.10;
+  }
   .hero > .container {
     max-width: 100%;
     padding-inline: 1rem;
