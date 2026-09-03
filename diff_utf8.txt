@@ -1,0 +1,1378 @@
+﻿diff --git a/css/components.css b/css/components.css
+index 617231b..3d6b7d4 100644
+--- a/css/components.css
++++ b/css/components.css
+@@ -17,8 +17,8 @@
+   font-size: var(--text-base);
+   font-weight: var(--weight-semibold);
+   letter-spacing: var(--tracking-wide);
+-  color: var(--color-text-inverse);
+-  background: var(--color-brown-dark);
++  color: var(--color-bg-dark-rich);
++  background: var(--gradient-gold);
+   border: none;
+   border-radius: var(--radius-full);
+   cursor: pointer;
+@@ -28,7 +28,7 @@
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+-  box-shadow: var(--shadow-md);
++  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.22), var(--shadow-sm);
+ }
+ 
+ /* Gold Foil Shimmer Hover Effect */
+@@ -42,7 +42,7 @@
+   background: linear-gradient(
+     to right,
+     rgba(255, 255, 255, 0) 0%,
+-    rgba(255, 255, 255, 0.3) 50%,
++    rgba(255, 255, 255, 0.45) 50%,
+     rgba(255, 255, 255, 0) 100%
+   );
+   transform: skewX(-25deg);
+@@ -50,9 +50,9 @@
+ }
+ 
+ .btn-cta:hover {
+-  background: var(--color-brown-warm);
+-  transform: translateY(-2px);
+-  box-shadow: var(--shadow-lg), 0 4px 15px rgba(184, 149, 106, 0.2);
++  background: linear-gradient(135deg, #FFF0D0 0%, #E5C060 50%, #C49221 100%);
++  transform: translateY(-2.5px);
++  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.42), 0 4px 12px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .btn-cta:hover::before {
+@@ -185,11 +185,11 @@
+ 
+ .id-card {
+   padding: var(--space-lg) var(--space-xl);
+-  background: rgba(251, 248, 244, 0.72);
++  background: linear-gradient(135deg, rgba(252, 250, 247, 0.88) 0%, rgba(246, 236, 224, 0.68) 100%);
+   backdrop-filter: var(--glass-backdrop);
+   -webkit-backdrop-filter: var(--glass-backdrop);
+-  border: 1px solid rgba(184, 149, 106, 0.18);
+-  border-left: 4px solid var(--color-gold-pale);
++  border: 1px solid rgba(212, 175, 55, 0.16);
++  border-left: 4.5px solid var(--color-gold);
+   border-radius: var(--radius-md);
+   margin-bottom: var(--space-md);
+   box-shadow: var(--glass-shadow);
+@@ -199,18 +199,24 @@
+ }
+ 
+ .id-card:hover {
+-  border-left-color: var(--color-gold);
+-  transform: translateX(4px) translateY(-1px);
+-  box-shadow: var(--shadow-md), var(--shadow-gold);
++  border-left-color: var(--color-gold-light);
++  transform: translateX(5px) translateY(-2px);
++  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.12), 0 4px 12px rgba(33, 24, 21, 0.04);
+ }
+ 
+-.id-card__text {
+-  font-family: var(--font-display);
+-  font-size: var(--text-xl);
+-  font-weight: var(--weight-regular);
+-  font-style: italic;
+-  line-height: var(--leading-snug);
++.id-card__title-h3 {
++  font-family: var(--font-body);
++  font-size: var(--text-base);
++  font-weight: var(--weight-bold);
++  margin-bottom: var(--space-xs);
+   color: var(--color-text-primary);
++}
++
++.id-card__text {
++  font-family: var(--font-body);
++  font-size: var(--text-sm);
++  color: var(--color-text-secondary);
++  line-height: var(--leading-normal);
+   margin-bottom: 0;
+ }
+ 
+@@ -830,16 +836,16 @@
+ }
+ 
+ .hero .btn-cta {
+-  background: var(--color-bg-primary);
+-  color: var(--color-brown-rich);
+-  border: 1px solid rgba(212, 191, 166, 0.5);
+-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.7);
++  background: var(--gradient-gold);
++  color: var(--color-bg-dark-rich);
++  border: none;
++  box-shadow: 0 18px 46px rgba(212, 175, 55, 0.28), 0 4px 15px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .hero .btn-cta:hover {
+-  background: #fff;
+-  color: var(--color-brown-rich);
+-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 4px rgba(212, 191, 166, 0.08);
++  background: linear-gradient(135deg, #FFF0D0 0%, #E5C060 50%, #C49221 100%);
++  color: var(--color-bg-dark-rich);
++  box-shadow: 0 24px 60px rgba(212, 175, 55, 0.45), 0 8px 24px rgba(0, 0, 0, 0.3);
+ }
+ 
+ .hero .cta-microcopy {
+diff --git a/css/sections.css b/css/sections.css
+index 5114a30..f998230 100644
+--- a/css/sections.css
++++ b/css/sections.css
+@@ -164,6 +164,18 @@
+ .identification__cards {
+   max-width: var(--container-narrow);
+   margin-bottom: var(--space-2xl);
++  display: flex;
++  flex-direction: column;
++  gap: var(--space-md);
++}
++
++@media (min-width: 768px) {
++  .identification__cards {
++    display: grid;
++    grid-template-columns: repeat(2, 1fr);
++    gap: var(--space-lg);
++    max-width: var(--container-max);
++  }
+ }
+ 
+ .identification__transition {
+@@ -183,81 +195,98 @@
+   line-height: var(--leading-snug);
+ }
+ 
+-/* ÔöÇÔöÇÔöÇ S03: REFRAME ÔöÇÔöÇÔöÇ */
++/* ÔöÇÔöÇÔöÇ S03: A RAIZ (EDITORIAL) ÔöÇÔöÇÔöÇ */
+ 
+-.reframe {
+-  background: var(--color-surface-paper);
++.raiz {
++  background: linear-gradient(135deg, #321A15 0%, #150F0D 100%);
++  color: var(--color-text-inverse);
++  text-align: center;
++  position: relative;
++  overflow: hidden;
++  padding-block: var(--section-py);
+ }
+ 
+-.reframe__inner {
++.raiz__inner {
+   max-width: var(--container-text);
+   margin-inline: auto;
+   position: relative;
++  z-index: 2;
+ }
+ 
+-.reframe__inner::before {
+-  content: '';
+-  position: absolute;
+-  top: -2rem;
+-  right: min(-6vw, -2rem);
+-  width: clamp(72px, 10vw, 132px);
+-  height: 1px;
+-  background: linear-gradient(90deg, transparent, rgba(184, 149, 106, 0.55));
+-  transform: rotate(-10deg);
++.raiz__manifesto p {
++  font-family: var(--font-display);
++  font-size: var(--text-xl);
++  font-style: italic;
++  line-height: var(--leading-relaxed);
++  color: rgba(250, 247, 243, 0.85);
++  margin-bottom: var(--space-md);
+ }
+ 
+-.reframe__headline {
++.raiz__footer-text {
++  font-family: var(--font-body);
++  font-size: var(--text-lg);
++  font-weight: var(--weight-bold);
++  color: var(--color-gold-light);
++  margin-top: var(--space-lg);
++}
++
++/* ÔöÇÔöÇÔöÇ S04: VALORES E LIMITES ÔöÇÔöÇÔöÇ */
++
++.valores-limites {
++  background: var(--color-bg-primary);
++  padding-block: var(--section-py);
++}
++
++.valores-limites__inner {
++  max-width: var(--container-narrow);
++  margin-inline: auto;
++  text-align: center;
++}
++
++.valores-limites__headline {
+   margin-bottom: var(--space-xl);
+ }
+ 
+-.reframe__text {
+-  margin-bottom: var(--space-lg);
++/* ÔöÇÔöÇÔöÇ S05: POR QUE MUDAR N├âO SE SUSTENTA ÔöÇÔöÇÔöÇ */
++
++.sustentacao {
++  background: var(--color-bg-secondary);
++  padding-block: var(--section-py);
+ }
+ 
+-.reframe__emphasis {
+-  position: relative;
+-  padding: var(--space-xl) var(--space-2xl) var(--space-xl) clamp(var(--space-xl), 5vw, var(--space-3xl));
+-  margin-block: var(--space-2xl);
+-  border-left: 1px solid var(--color-gold);
+-  background: rgba(255, 255, 255, 0.42);
+-  box-shadow: var(--shadow-sm);
+-  border-radius: var(--radius-md);
++.sustentacao__inner {
++  max-width: var(--container-narrow);
++  margin-inline: auto;
++  text-align: center;
+ }
+ 
+-.reframe__emphasis::before {
+-  content: '';
+-  position: absolute;
+-  left: -7px;
+-  top: var(--space-xl);
+-  width: 13px;
+-  height: 13px;
+-  border: 1px solid var(--color-gold);
+-  border-radius: var(--radius-full);
+-  background: var(--color-surface-paper);
++.sustentacao__headline {
++  margin-bottom: var(--space-xl);
+ }
+ 
+-.reframe__emphasis p {
+-  font-family: var(--font-display);
+-  font-size: var(--text-2xl);
+-  font-weight: var(--weight-regular);
+-  font-style: italic;
+-  line-height: var(--leading-snug);
+-  color: var(--color-text-primary);
+-  margin-bottom: 0;
++.sustentacao__highlight {
++  border-left: 4px solid var(--color-gold);
++  background: var(--color-surface-paper);
++  padding: var(--space-xl);
++  border-radius: 0 var(--radius-md) var(--radius-md) 0;
++  margin-block: var(--space-2xl);
++  text-align: left;
++  box-shadow: var(--shadow-sm);
+ }
+ 
+-/* ÔöÇÔöÇÔöÇ S04: RECONSTRUCTION CONCEPT ÔöÇÔöÇÔöÇ */
++/* ÔöÇÔöÇÔöÇ S06: PROCESSO DE POSICIONAMENTO ÔöÇÔöÇÔöÇ */
+ 
+-.reconstruction {
++.processo {
+   background:
+     radial-gradient(circle at 18% 24%, rgba(212, 191, 166, 0.12), transparent 22rem),
+     linear-gradient(135deg, #2A2320 0%, #332824 52%, #1F2A2C 100%);
+   color: var(--color-text-inverse);
+   position: relative;
+   overflow: hidden;
++  padding-block: var(--section-py);
+ }
+ 
+-.reconstruction::before {
++.processo::before {
+   content: '';
+   position: absolute;
+   left: 50%;
+@@ -266,42 +295,18 @@
+   height: clamp(56px, 7vw, 96px);
+   pointer-events: none;
+   transform: translateX(-50%);
+-  background: var(--color-surface-paper);
++  background: var(--color-bg-secondary);
+   border-radius: 0 0 52% 48% / 0 0 100% 100%;
+   z-index: 0;
+ }
+ 
+-.reconstruction::after {
+-  content: '';
+-  position: absolute;
+-  inset: auto -9rem -9rem auto;
+-  width: clamp(260px, 36vw, 560px);
+-  aspect-ratio: 1;
+-  background: url('../images/logo/logo dourada.png') center / contain no-repeat;
+-  opacity: 0.024;
+-  pointer-events: none;
+-}
+-
+-.reconstruction__inner {
++.processo__inner {
+   max-width: var(--container-narrow);
+   margin-inline: auto;
+   text-align: center;
+ }
+ 
+-.reconstruction__headline {
+-  color: var(--color-text-inverse);
+-  margin-bottom: var(--space-lg);
+-}
+-
+-.reconstruction__intro {
+-  font-size: var(--text-lg);
+-  color: rgba(250, 247, 243, 0.75);
+-  max-width: 580px;
+-  margin-inline: auto;
+-  margin-bottom: var(--space-3xl);
+-}
+-
+-.reconstruction__steps {
++.processo__steps {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+@@ -309,57 +314,28 @@
+   margin-bottom: var(--space-2xl);
+ }
+ 
+-.reconstruction__closing {
+-  max-width: 560px;
+-  margin-inline: auto;
+-  padding: var(--space-xl) var(--space-2xl);
+-  border: 1px solid rgba(184, 149, 106, 0.18);
+-  border-radius: var(--radius-md);
+-  background: rgba(251, 248, 244, 0.035);
+-}
+-
+-.reconstruction__closing p {
+-  font-size: var(--text-base);
+-  color: rgba(250, 247, 243, 0.7);
+-}
++/* ÔöÇÔöÇÔöÇ S07: SESS├âO CLAREZA ÔöÇÔöÇÔöÇ */
+ 
+-/* Decorative background texture */
+-.reconstruction__bg-texture {
+-  position: absolute;
+-  inset: 0;
+-  opacity: 0.03;
+-  background-image: 
+-    radial-gradient(circle at 15% 50%, rgba(184, 149, 106, 0.5) 0%, transparent 50%),
+-    radial-gradient(circle at 85% 80%, rgba(184, 149, 106, 0.3) 0%, transparent 40%);
+-  pointer-events: none;
+-}
+-
+-/* ÔöÇÔöÇÔöÇ S05: PRACTICAL ÔöÇÔöÇÔöÇ */
+-
+-.practical {
+-  background:
+-    radial-gradient(circle at 12% 18%, rgba(184, 149, 106, 0.1), transparent 22rem),
+-    var(--color-surface-linen);
+-}
+-
+-.practical__headline {
+-  max-width: 600px;
+-  margin-bottom: var(--space-2xl);
+-}
+-
+-.practical__headline em {
+-  color: var(--color-brown-light);
++.sessao-clareza {
++  background: var(--gradient-band);
++  padding-block: var(--section-py);
++  position: relative;
++  overflow: hidden;
+ }
+ 
+-.practical__grid {
+-  display: grid;
+-  grid-template-columns: 1fr;
+-  gap: var(--space-xs);
++.sessao-clareza__inner {
+   max-width: var(--container-narrow);
++  margin-inline: auto;
+ }
+ 
+-.practical__cta {
+-  margin-top: var(--space-2xl);
++.sessao-clareza__card {
++  background: linear-gradient(135deg, rgba(252, 250, 247, 0.95) 0%, rgba(246, 236, 224, 0.8) 100%);
++  border: 1px solid rgba(212, 175, 55, 0.24);
++  border-radius: var(--radius-xl);
++  padding: var(--space-2xl);
++  box-shadow: 0 12px 40px rgba(33, 24, 21, 0.08), 0 0 24px rgba(212, 175, 55, 0.06);
++  margin-bottom: var(--space-3xl);
++  text-align: center;
+ }
+ 
+ /* ÔöÇÔöÇÔöÇ S06: ABOUT ÔöÇÔöÇÔöÇ */
+@@ -477,47 +453,34 @@
+   border-radius: var(--radius-full);
+ }
+ 
+-/* ÔöÇÔöÇÔöÇ S07: FOR WHOM ÔöÇÔöÇÔöÇ */
++/* ÔöÇÔöÇÔöÇ S09: COMO FUNCIONA ÔöÇÔöÇÔöÇ */
+ 
+-.for-whom {
++.como-funciona {
+   background: var(--gradient-band);
++  padding-block: var(--section-py);
+ }
+ 
+-.for-whom__headline {
+-  margin-bottom: var(--space-2xl);
+-}
+-
+-.for-whom__headline em {
+-  color: var(--color-brown-light);
+-}
+-
+-.for-whom__grid {
++.como-funciona__grid {
+   display: grid;
+-  grid-template-columns: 1fr;
+-  gap: var(--space-2xl);
+-  max-width: var(--container-narrow);
++  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
++  gap: var(--space-md);
++  max-width: 900px;
+   margin-inline: auto;
+ }
+ 
+-.for-whom__column {
+-  padding: var(--space-xl);
+-  border-radius: var(--radius-lg);
+-}
+-
+-.for-whom__column--yes {
++.como-funciona__item {
+   background: var(--color-bg-primary);
+-  border: 1px solid var(--color-border-light);
+-}
+-
+-.for-whom__column--no {
+-  background: transparent;
++  border: 1.5px solid var(--color-border-light);
++  padding: var(--space-lg);
++  border-radius: var(--radius-md);
++  text-align: center;
++  transition: all var(--duration-base) var(--ease-premium);
+ }
+ 
+-.for-whom__column-title {
+-  font-family: var(--font-display);
+-  font-size: var(--text-xl);
+-  font-weight: var(--weight-regular);
+-  margin-bottom: var(--space-lg);
++.como-funciona__item:hover {
++  transform: translateY(-2px);
++  box-shadow: var(--shadow-sm);
++  border-color: var(--color-gold-pale);
+ }
+ 
+ /* ÔöÇÔöÇÔöÇ S09: SOCIAL PROOF ÔöÇÔöÇÔöÇ */
+diff --git a/css/tokens.css b/css/tokens.css
+index 8e14685..1bcadac 100644
+--- a/css/tokens.css
++++ b/css/tokens.css
+@@ -6,58 +6,58 @@
+ 
+ :root {
+   /* ÔöÇÔöÇÔöÇ Background Colors ÔöÇÔöÇÔöÇ */
+-  --color-bg-primary: #FBF8F4;
+-  --color-bg-secondary: #F1E8DC;
+-  --color-bg-tertiary: #E8DED1;
+-  --color-bg-accent: #DDD0C0;
+-  --color-bg-dark: #352C27;
+-  --color-bg-dark-rich: #2A2320;
+-  --color-bg-warm: #3F3430;
+-  --color-surface-paper: #F8F1E8;
+-  --color-surface-linen: #EFE3D4;
+-  --color-surface-mist: #E7D8C6;
+-  --color-surface-ink: #2B211D;
+-  --color-surface-cacao: #3C302B;
++  --color-bg-primary: #FCFAF7;
++  --color-bg-secondary: #F6ECE0;
++  --color-bg-tertiary: #ECDDCB;
++  --color-bg-accent: #E2CFB9;
++  --color-bg-dark: #211815;
++  --color-bg-dark-rich: #16100E;
++  --color-bg-warm: #2A1E1B;
++  --color-surface-paper: #FAF4EB;
++  --color-surface-linen: #F1E5D6;
++  --color-surface-mist: #E8D7C2;
++  --color-surface-ink: #1C1310;
++  --color-surface-cacao: #2B1D19;
+ 
+   /* ÔöÇÔöÇÔöÇ Text Colors ÔöÇÔöÇÔöÇ */
+-  --color-text-primary: #2A2320;
+-  --color-text-secondary: #5C504A;
+-  --color-text-tertiary: #8C7E76;
+-  --color-text-inverse: #FAF7F3;
+-  --color-text-accent: #B8956A;
++  --color-text-primary: #1C1310;
++  --color-text-secondary: #584A42;
++  --color-text-tertiary: #84756B;
++  --color-text-inverse: #FCFAF7;
++  --color-text-accent: #D4AF37;
+ 
+   /* ÔöÇÔöÇÔöÇ Brand Colors (from logo) ÔöÇÔöÇÔöÇ */
+-  --color-brown-dark: #352C27;
+-  --color-brown-rich: #2A2320;
+-  --color-brown-medium: #5C504A;
+-  --color-brown-warm: #3F3430;
+-  --color-brown-light: #6B5D55;
+-  --color-gold: #B8956A;
+-  --color-gold-light: #CBAA82;
+-  --color-gold-muted: #A68B66;
+-  --color-gold-pale: #D4BFA6;
+-  --color-gold-deep: #8E724E;
++  --color-brown-dark: #211815;
++  --color-brown-rich: #16100E;
++  --color-brown-medium: #584A42;
++  --color-brown-warm: #2A1E1B;
++  --color-brown-light: #6E5A50;
++  --color-gold: #D4AF37;
++  --color-gold-light: #F3E7C4;
++  --color-gold-muted: #B5944A;
++  --color-gold-pale: #F9EFCF;
++  --color-gold-deep: #8E6F2D;
+ 
+   /* ÔöÇÔöÇÔöÇ Brand Palette (from usage) ÔöÇÔöÇÔöÇ */
+   --color-cream: #EDE5D9;
+-  --color-terracotta: #C06530;
+-  --color-terracotta-light: #D47842;
+-  --color-terracotta-dark: #A85528;
+-  --color-olive: #5A6335;
+-  --color-olive-light: #6B7544;
+-  --color-olive-dark: #4A5229;
+-  --color-amber: #CB9440;
+-  --color-amber-light: #D9A654;
+-  --color-amber-dark: #B58235;
+-  --color-teal: #2C5364;
+-  --color-teal-light: #3A6B7E;
+-  --color-teal-dark: #1F3F4E;
++  --color-terracotta: #C85B28;
++  --color-terracotta-light: #DF713F;
++  --color-terracotta-dark: #A34215;
++  --color-olive: #6E7A42;
++  --color-olive-light: #8A9958;
++  --color-olive-dark: #555E30;
++  --color-amber: #E2A036;
++  --color-amber-light: #F1B54E;
++  --color-amber-dark: #C1811F;
++  --color-teal: #1F4959;
++  --color-teal-light: #2A6277;
++  --color-teal-dark: #15323E;
+ 
+   /* ÔöÇÔöÇÔöÇ UI Colors ÔöÇÔöÇÔöÇ */
+-  --color-border: #D5C8BB;
+-  --color-border-light: #E8E0D8;
+-  --color-focus: #B8956A;
+-  --color-error: #B85450;
++  --color-border: #DDC8B6;
++  --color-border-light: #EFE0D2;
++  --color-focus: #D4AF37;
++  --color-error: #C9423E;
+   --color-error-light: #F5EAEA;
+   --color-success: #5A6335;
+   --color-success-light: #EDF2EA;
+@@ -157,17 +157,17 @@
+   --z-modal: 1000;
+ 
+   /* ÔöÇÔöÇÔöÇ Glassmorphism & Premium Gradients ÔöÇÔöÇÔöÇ */
+-  --glass-bg: rgba(255, 255, 255, 0.42);
+-  --glass-bg-dark: rgba(42, 35, 32, 0.45);
+-  --glass-bg-teal: rgba(44, 83, 100, 0.3);
+-  --glass-border: rgba(255, 255, 255, 0.55);
+-  --glass-border-gold: rgba(184, 149, 106, 0.25);
+-  --glass-shadow: 0 8px 32px 0 rgba(42, 35, 32, 0.03);
+-  --glass-backdrop: blur(16px);
+-  --gradient-gold: linear-gradient(135deg, #A68B66 0%, #CB9440 50%, #D4BFA6 100%);
+-  --gradient-hero: linear-gradient(112deg, #241B18 0%, #352A26 52%, #51433C 100%);
+-  --gradient-paper: linear-gradient(135deg, #FBF8F4 0%, #F4EADF 48%, #E8D9C8 100%);
+-  --gradient-band: linear-gradient(135deg, #F8F1E8 0%, #EFE1D1 100%);
++  --glass-bg: rgba(252, 250, 247, 0.45);
++  --glass-bg-dark: rgba(33, 24, 21, 0.5);
++  --glass-bg-teal: rgba(31, 73, 89, 0.35);
++  --glass-border: rgba(252, 250, 247, 0.6);
++  --glass-border-gold: rgba(212, 175, 55, 0.3);
++  --glass-shadow: 0 8px 32px 0 rgba(33, 24, 21, 0.05);
++  --glass-backdrop: blur(20px);
++  --gradient-gold: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 50%, #AA7C11 100%);
++  --gradient-hero: linear-gradient(112deg, #16100E 0%, #211815 52%, #3E2D27 100%);
++  --gradient-paper: linear-gradient(135deg, #FCFAF7 0%, #F5E8D9 48%, #ECD5C0 100%);
++  --gradient-band: linear-gradient(135deg, #FAF4EB 0%, #ECD8C3 100%);
+ }
+ 
+ @media (max-width: 640px) {
+diff --git a/index.html b/index.html
+index 86de862..053d5a0 100644
+--- a/index.html
++++ b/index.html
+@@ -5,15 +5,15 @@
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+   <!-- SEO -->
+-  <title>Paula Magrin | Terapeuta ÔÇö Reconstru├º├úo de Identidade e Desenvolvimento Humano</title>
+-  <meta name="description" content="Atendimento terap├¬utico para mulheres que desejam reconstruir identidade, limites e escolhas com profundidade e acolhimento. Converse com Paula Magrin.">
++  <title>Paula Magrin | Terapeuta ÔÇö Valores, Limites e Desenvolvimento Humano</title>
++  <meta name="description" content="Desenvolva a estrutura emocional necess├íria para sustentar a vida que voc├¬ quer construir. Terapia para quem busca alinhamento de valores, limites saud├íveis e consist├¬ncia nas mudan├ºas.">
+   <meta name="robots" content="index, follow">
+   <link rel="canonical" href="/">
+ 
+   <!-- Open Graph -->
+   <meta property="og:type" content="website">
+-  <meta property="og:title" content="Paula Magrin | Terapeuta ÔÇö Reconstru├º├úo de Identidade">
+-  <meta property="og:description" content="Um espa├ºo terap├¬utico para reconstruir identidade, limites e escolhas com profundidade e acolhimento.">
++  <meta property="og:title" content="Paula Magrin | Terapeuta ÔÇö Valores, Limites e Posicionamento">
++  <meta property="og:description" content="Desenvolva a estrutura necess├íria para sustentar a vida que voc├¬ quer construir. Terapia com Paula Magrin.">
+   <meta property="og:image" content="images/fotos/Foto%20Paula%2016%20.png">
+   <meta property="og:url" content="/">
+   <meta property="og:locale" content="pt_BR">
+@@ -87,19 +87,22 @@
+         <div class="hero__grid">
+ 
+           <div class="hero__content">
+-
+             <h1 class="hero__headline">
+-              Voc├¬ aprendeu a sustentar tudo.<br>
+-              <em>Agora ├® hora de voltar para si.</em>
++              Talvez o problema n├úo seja apenas tudo o que est├í acontecendo ao seu redor.<br>
++              <em>Talvez voc├¬ tenha passado tempo demais negociando aquilo que ├® importante para voc├¬.</em>
+             </h1>
+ 
+             <p class="hero__subheadline">
+-              Um processo terap├¬utico para mulheres que reconhecem padr├Áes, carregam responsabilidades demais e desejam reconstruir a pr├│pria identidade com consci├¬ncia, limites e escolhas mais verdadeiras.
++              Quando valores s├úo constantemente abandonados, limites come├ºam a desaparecer ÔÇö e sustentar escolhas, rela├º├Áes e mudan├ºas se torna cada vez mais dif├¡cil.
++            </p>
++
++            <p class="hero__complement" style="color: rgba(250, 247, 243, 0.65); font-size: var(--text-base); line-height: var(--leading-normal); margin-bottom: var(--space-xl); max-width: 520px;">
++              A terapia pode ajudar voc├¬ a compreender essa estrutura, recuperar dire├º├úo e construir uma rela├º├úo mais consciente com seus valores, limites e escolhas.
+             </p>
+ 
+             <div>
+               <button class="btn-cta btn-cta--large" data-open-modal data-cta-location="hero" id="cta-hero">
+-                Quero conversar com a Paula
++                QUERO CONVERSAR
+                 <span class="btn-cta__arrow" aria-hidden="true">ÔåÆ</span>
+               </button>
+               <p class="cta-microcopy">O primeiro passo ├® uma conversa para entendermos o seu momento.</p>
+@@ -150,92 +153,165 @@
+       <div class="container">
+ 
+         <h2 class="identification__headline section__headline animate-on-scroll">
+-          Talvez voc├¬ j├í tenha percebido.<br>
+-          <em>O dif├¡cil ├® conseguir sair dele.</em>
++          Talvez voc├¬ n├úo esteja perdida.<br>
++          <em>Talvez esteja cansada de viver em conflito consigo mesma.</em>
+         </h2>
+ 
++        <p class="section__subtitle animate-on-scroll" style="color: var(--color-text-secondary); margin-bottom: var(--space-xl); font-size: var(--text-lg); max-width: 600px;">
++          Alguns sinais aparecem muito antes de conseguirmos entender a verdadeira origem do problema.
++        </p>
++
+         <div class="identification__cards" data-stagger>
+ 
+           <div class="id-card animate-slide-right">
+-            <p class="id-card__text">Voc├¬ sabe que deveria colocar limites, mas sente culpa toda vez que tenta.</p>
++            <h3 class="id-card__title-h3">Voc├¬ diz ÔÇ£simÔÇØ querendo dizer ÔÇ£n├úoÔÇØ.</h3>
++            <p class="id-card__text">E depois sente culpa, raiva ou ressentimento por ter novamente ultrapassado seus pr├│prios limites.</p>
+           </div>
+ 
+           <div class="id-card animate-slide-right">
+-            <p class="id-card__text">Promete que n├úo vai repetir determinada situa├º├úo ÔÇö e percebe que aconteceu novamente.</p>
++            <h3 class="id-card__title-h3">Voc├¬ aceita coisas que sabe que n├úo gostaria de aceitar.</h3>
++            <p class="id-card__text">Para evitar conflito, rejei├º├úo, julgamento ou desapontar algu├®m.</p>
+           </div>
+ 
+           <div class="id-card animate-slide-right">
+-            <p class="id-card__text">Resolve problemas de todo mundo, mas evita algumas decis├Áes importantes da pr├│pria vida.</p>
++            <h3 class="id-card__title-h3">Voc├¬ sabe que precisa mudar, mas n├úo consegue sustentar a mudan├ºa.</h3>
++            <p class="id-card__text">Come├ºa, recua, volta atr├ís e se pergunta por que continua repetindo determinadas escolhas.</p>
+           </div>
+ 
+           <div class="id-card animate-slide-right">
+-            <p class="id-card__text">Passou anos cuidando da fam├¡lia, da carreira e das responsabilidades ÔÇö e hoje percebe que n├úo sabe exatamente onde voc├¬ ficou nessa hist├│ria.</p>
++            <h3 class="id-card__title-h3">Voc├¬ est├í cansada de carregar tudo.</h3>
++            <p class="id-card__text">Mas tamb├®m n├úo consegue deixar de assumir responsabilidades que talvez nem sejam suas.</p>
+           </div>
+ 
+-        </div>
++          <div class="id-card animate-slide-right">
++            <h3 class="id-card__title-h3">Voc├¬ questiona suas pr├│prias decis├Áes.</h3>
++            <p class="id-card__text">Mesmo quando sabe o que deseja, a opini├úo e a expectativa dos outros ainda t├¬m for├ºa demais.</p>
++          </div>
++
++          <div class="id-card animate-slide-right">
++            <h3 class="id-card__title-h3">Voc├¬ sente que se afastou de quem ├®.</h3>
++            <p class="id-card__text">A vida continua funcionando, mas existe uma sensa├º├úo crescente de incoer├¬ncia por dentro.</p>
++          </div>
+ 
+-        <div class="identification__transition animate-on-scroll">
+-          <hr class="separator">
+-          <p>Perceber ├® s├│ o come├ºo. Sair do autom├ítico exige um novo posicionamento.</p>
+         </div>
+ 
+       </div>
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 03 ÔÇö REFRAME / NOVO MECANISMO
++         SE├ç├âO 03 ÔÇö A RAIZ (EDITORIAL)
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+-    <section class="reframe section" id="reframe" aria-label="Uma nova perspectiva">
++    <section class="raiz section" id="a-raiz" aria-label="A raiz do problema">
+       <div class="container">
+-        <div class="reframe__inner">
+-
+-          <h2 class="reframe__headline section__headline animate-on-scroll">
+-            Talvez voc├¬ n├úo tenha um problema de falta de for├ºa.
++        <div class="raiz__inner animate-on-scroll">
++          <p class="raiz__kicker" style="font-size: var(--text-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-widest); text-transform: uppercase; color: var(--color-gold-light); margin-bottom: var(--space-md);">O QUE EST├ü POR TR├üS</p>
++          <h2 class="raiz__headline" style="font-family: var(--font-display); font-size: var(--text-3xl); line-height: var(--leading-tight); color: var(--color-text-inverse); margin-bottom: var(--space-xl);">
++            A desordem emocional pode ser apenas o sintoma.
+           </h2>
+ 
+-          <p class="reframe__text animate-on-scroll">
+-            Voc├¬ j├í precisou ser forte por tempo demais.
+-          </p>
++          <div class="raiz__manifesto" style="font-family: var(--font-display); font-size: var(--text-xl); font-style: italic; color: rgba(250, 247, 243, 0.85); line-height: var(--leading-relaxed); margin-bottom: var(--space-2xl); text-align: left; max-width: 680px; margin-inline: auto;">
++            <p style="margin-bottom: var(--space-md);">├Çs vezes, a raiz est├í em todas as vezes em que voc├¬ ultrapassou os pr├│prios limites para manter algo funcionando.</p>
++            <p style="margin-bottom: var(--space-md);">Em cada ÔÇ£simÔÇØ dado contra a pr├│pria vontade.</p>
++            <p style="margin-bottom: var(--space-md);">Em cada situa├º├úo inaceit├ível que foi aceita.</p>
++            <p style="margin-bottom: var(--space-md);">Em cada valor negociado para evitar uma perda, um conflito ou uma mudan├ºa.</p>
++          </div>
+ 
+-          <p class="reframe__text animate-on-scroll">
+-            Alguns comportamentos que hoje incomodam j├í serviram para proteger, pertencer ou evitar conflitos. Foram estrat├®gias reais para momentos reais.
++          <p class="raiz__footer-text" style="font-family: var(--font-body); font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-gold); margin-top: var(--space-lg);">
++            O corpo, a mente e as emo├º├Áes acabam cobrando essa conta.
+           </p>
++        </div>
++      </div>
++    </section>
+ 
+-          <div class="reframe__emphasis animate-on-scroll">
+-            <p>O problema come├ºa quando uma estrat├®gia antiga continua decidindo pela mulher que voc├¬ ├® hoje.</p>
+-          </div>
++    <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
++         SE├ç├âO 04 ÔÇö VALORES E LIMITES
++         ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
++    <section class="valores-limites section" id="valores-limites" aria-label="Valores e limites">
++      <div class="container">
++        <div class="valores-limites__inner">
++          <h2 class="valores-limites__headline section__headline animate-on-scroll">
++            Aprender a dizer ÔÇ£n├úoÔÇØ n├úo ├® suficiente quando voc├¬ ainda n├úo sabe a quais coisas precisa dizer ÔÇ£simÔÇØ.
++          </h2>
+ 
+-          <p class="reframe__text animate-on-scroll">
+-            <strong>Dizer sim para todo mundo tamb├®m pode ser uma forma de dizer n├úo para voc├¬.</strong>
++          <p class="valores-limites__text animate-on-scroll" style="margin-bottom: var(--space-lg); font-size: var(--text-lg); line-height: var(--leading-normal); color: var(--color-text-secondary); max-width: 680px; margin-inline: auto; text-align: center;">
++            Antes de construir limites s├│lidos, ├® necess├írio compreender os valores que esses limites existem para proteger.
+           </p>
+ 
++          <div class="valores-limites__grid animate-on-scroll" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); max-width: 800px; margin: var(--space-2xl) auto; text-align: left;">
++            <div style="background: var(--color-bg-primary); border: 1.5px solid var(--color-border-light); padding: var(--space-lg); border-radius: var(--radius-md); width: 100%;">
++              <h3 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); margin-bottom: var(--space-xs); color: var(--color-text-primary);">O que voc├¬ precisa reconhecer:</h3>
++              <ul style="list-style: none; padding: 0; display: grid; gap: var(--space-xs);">
++                <li style="position: relative; padding-left: var(--space-md); font-size: var(--text-sm); color: var(--color-text-secondary);">
++                  <span style="position: absolute; left: 0; color: var(--color-gold);">ÔÇó</span> O que realmente ├® importante para voc├¬;
++                </li>
++                <li style="position: relative; padding-left: var(--space-md); font-size: var(--text-sm); color: var(--color-text-secondary);">
++                  <span style="position: absolute; left: 0; color: var(--color-gold);">ÔÇó</span> Aquilo do qual n├úo est├í mais disposta a abrir m├úo ou negociar;
++                </li>
++                <li style="position: relative; padding-left: var(--space-md); font-size: var(--text-sm); color: var(--color-text-secondary);">
++                  <span style="position: absolute; left: 0; color: var(--color-gold);">ÔÇó</span> Quais tipos de rela├º├Áes voc├¬ deseja de fato nutrir e construir;
++                </li>
++                <li style="position: relative; padding-left: var(--space-md); font-size: var(--text-sm); color: var(--color-text-secondary);">
++                  <span style="position: absolute; left: 0; color: var(--color-gold);">ÔÇó</span> Quais comportamentos voc├¬ aceita e quais n├úo aceita em sua vida;
++                </li>
++                <li style="position: relative; padding-left: var(--space-md); font-size: var(--text-sm); color: var(--color-text-secondary);">
++                  <span style="position: absolute; left: 0; color: var(--color-gold);">ÔÇó</span> Quem voc├¬ deseja ser dentro das suas pr├│prias escolhas.
++                </li>
++              </ul>
++            </div>
++          </div>
++
++          <div class="quote-block animate-on-scroll" style="max-width: 600px; margin-inline: auto; text-align: center;">
++            <p class="quote-block__text" style="font-family: var(--font-display); font-size: var(--text-2xl); font-style: italic; color: var(--color-text-primary);">
++              Limites n├úo s├úo muros. S├úo a express├úo pr├ítica dos seus valores.
++            </p>
++          </div>
+         </div>
+       </div>
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 04 ÔÇö CONCEITO DA RECONSTRU├ç├âO
++         SE├ç├âO 05 ÔÇö POR QUE VOC├è N├âO SUSTENTA A MUDAN├çA?
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+-    <section class="reconstruction section" id="reconstrucao" aria-label="Reconstru├º├úo de Identidade">
+-      <div class="reconstruction__bg-texture" aria-hidden="true"></div>
++    <section class="sustentacao section" id="sustentacao" aria-label="Sustentar mudan├ºas">
+       <div class="container">
+-        <div class="reconstruction__inner">
++        <div class="sustentacao__inner" style="max-width: var(--container-narrow); margin-inline: auto; text-align: center;">
++          <h2 class="sustentacao__headline section__headline animate-on-scroll">
++            Voc├¬ j├í tentou mudar.<br>
++            <em>Ent├úo por que tudo parece voltar para o mesmo lugar?</em>
++          </h2>
+ 
++          <p class="sustentacao__text animate-on-scroll" style="font-size: var(--text-lg); line-height: var(--leading-normal); color: var(--color-text-secondary); margin-bottom: var(--space-xl);">
++            Porque mudan├ºa n├úo depende somente de decis├úo ou for├ºa de vontade. Se uma pessoa mant├®m os mesmos padr├Áes, os mesmos crit├®rios, os mesmos medos, os mesmos limites fr├ígeis, a mesma necessidade de aprova├º├úo e a mesma rela├º├úo com seus valores, ela pode at├® mudar de cen├írio, mas a estrutura interna continuar├í reproduzindo os mesmos conflitos.
++          </p>
+ 
+-          <h2 class="reconstruction__headline animate-on-scroll">
+-            Reconstru├º├úo de Identidade
+-          </h2>
++          <div class="sustentacao__highlight animate-on-scroll" style="background: var(--color-bg-secondary); border-left: 4px solid var(--color-gold); padding: var(--space-xl); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-block: var(--space-2xl); text-align: left;">
++            <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--weight-bold); margin-bottom: var(--space-xs); color: var(--color-text-primary);">Voc├¬ pode mudar o cen├írio sem mudar a estrutura.</h3>
++            <p style="margin-bottom: 0; color: var(--color-text-secondary); font-size: var(--text-base);">E quando a estrutura interna n├úo muda, padr├Áes antigos encontram maneiras novas de aparecer em novos empregos, novas rela├º├Áes ou novos caminhos.</p>
++          </div>
+ 
+-          <p class="reconstruction__intro animate-on-scroll">
+-            Voc├¬ n├úo precisa apagar sua hist├│ria para viver uma nova fase. Precisa compreend├¬-la o suficiente para n├úo continuar sendo governada por ela.
++          <p class="sustentacao__editorial-phrase animate-on-scroll" style="font-family: var(--font-display); font-size: var(--text-2xl); font-style: italic; color: var(--color-brown-light); font-weight: var(--weight-medium); margin-top: var(--space-xl);">
++            Uma vida diferente exige mais do que novas circunst├óncias. Exige um novo posicionamento.
+           </p>
++        </div>
++      </div>
++    </section>
++
++    <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
++         SE├ç├âO 06 ÔÇö PROCESSO
++         ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
++    <section class="processo section" id="processo" aria-label="Processo de posicionamento">
++      <div class="container">
++        <div class="processo__inner" style="max-width: var(--container-narrow); margin-inline: auto; text-align: center;">
++          <h2 class="processo__headline section__headline animate-on-scroll" style="color: var(--color-text-inverse); margin-bottom: var(--space-xl);">
++            Como funciona a reconstru├º├úo do posicionamento
++          </h2>
+ 
+-          <div class="reconstruction__steps" data-stagger>
++          <div class="processo__steps" data-stagger style="display: flex; flex-direction: column; align-items: center; gap: var(--space-md); margin-bottom: var(--space-3xl);">
+ 
+             <div class="step-card animate-on-scroll">
+               <div class="step-card__number">01</div>
+-              <h3 class="step-card__title">Hist├│ria</h3>
+-              <p class="step-card__desc">De onde vieram os padr├Áes que governam suas escolhas hoje.</p>
++              <h3 class="step-card__title">RECONHECER</h3>
++              <p class="step-card__desc">Identificar onde existe conflito entre aquilo que voc├¬ acredita e aquilo que est├í vivendo.</p>
+             </div>
+ 
+             <div class="step-connector animate-fade">
+@@ -244,8 +320,8 @@
+ 
+             <div class="step-card animate-on-scroll">
+               <div class="step-card__number">02</div>
+-              <h3 class="step-card__title">Consci├¬ncia</h3>
+-              <p class="step-card__desc">O que est├í mantendo esses padr├Áes ativos, mesmo quando voc├¬ j├í percebeu que eles existem.</p>
++              <h3 class="step-card__title">COMPREENDER</h3>
++              <p class="step-card__desc">Perceber padr├Áes, hist├│rias, rela├º├Áes e escolhas que constru├¡ram essa din├ómica.</p>
+             </div>
+ 
+             <div class="step-connector animate-fade">
+@@ -254,8 +330,8 @@
+ 
+             <div class="step-card animate-on-scroll">
+               <div class="step-card__number">03</div>
+-              <h3 class="step-card__title">Escolhas</h3>
+-              <p class="step-card__desc">Novos posicionamentos, limites e decis├Áes que criam congru├¬ncia entre o que voc├¬ deseja e o que voc├¬ faz.</p>
++              <h3 class="step-card__title">RECONSTRUIR</h3>
++              <p class="step-card__desc">Desenvolver uma rela├º├úo mais consciente com seus valores, seus limites e sua identidade.</p>
+             </div>
+ 
+             <div class="step-connector animate-fade">
+@@ -264,106 +340,105 @@
+ 
+             <div class="step-card animate-on-scroll">
+               <div class="step-card__number">04</div>
+-              <h3 class="step-card__title">Reconstru├º├úo</h3>
+-              <p class="step-card__desc">Uma identidade que n├úo ├® mais governada pelo que ficou para tr├ís ÔÇö mas pelas escolhas que voc├¬ faz agora.</p>
++              <h3 class="step-card__title">POSICIONAR</h3>
++              <p class="step-card__desc">Transformar clareza em escolhas, conversas, decis├Áes e comportamentos.</p>
+             </div>
+ 
+-          </div>
++            <div class="step-connector animate-fade">
++              <div class="step-connector__line"></div>
++            </div>
++
++            <div class="step-card animate-on-scroll">
++              <div class="step-card__number">05</div>
++              <h3 class="step-card__title">SUSTENTAR</h3>
++              <p class="step-card__desc">Construir consist├¬ncia suficiente para que a mudan├ºa n├úo seja apenas tempor├íria.</p>
++            </div>
+ 
+-          <div class="reconstruction__closing animate-on-scroll">
+-            <p><strong style="color: var(--color-text-inverse);">Sua mentalidade muda a sua realidade.</strong></p>
+-            <p>A proposta ├® levar clareza para limites, decis├Áes e rela├º├Áes ÔÇö sem ficar presa apenas ├á an├ílise.</p>
+           </div>
+ 
++          <div class="processo__closing animate-on-scroll" style="background: rgba(251, 248, 244, 0.035); border: 1px solid rgba(184, 149, 106, 0.18); border-radius: var(--radius-md); padding: var(--space-xl) var(--space-2xl); max-width: 600px; margin-inline: auto;">
++            <p style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--weight-light); color: var(--color-gold-pale); line-height: var(--leading-tight); margin-bottom: 0;">
++              Clareza para escolher.<br>
++              Limites para proteger.<br>
++              Consist├¬ncia para sustentar.
++            </p>
++          </div>
+         </div>
+       </div>
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 05 ÔÇö O QUE MUDA NA PR├üTICA
++         SE├ç├âO 07 ÔÇö SESS├âO CLAREZA
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+-    <section class="practical section" id="pratica" aria-label="O que muda na pr├ítica">
++    <section class="sessao-clareza section" id="sessao-clareza" aria-label="Sess├úo Clareza">
+       <div class="container">
+-
+-
+-        <h2 class="practical__headline section__headline animate-on-scroll">
+-          Porque consci├¬ncia s├│ come├ºa a mudar uma vida<br>
+-          <em>quando chega ├ás escolhas.</em>
+-        </h2>
+-
+-        <div class="practical__grid" data-stagger>
+-
+-          <div class="feature-item animate-on-scroll">
+-            <svg class="feature-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+-              <path d="M12 22V8M5 12l7-7 7 7"/>
+-            </svg>
+-            <p class="feature-item__text">Aprender a se posicionar ÔÇö nos relacionamentos, na fam├¡lia, no trabalho e consigo mesma.</p>
+-          </div>
+-
+-          <div class="feature-item animate-on-scroll">
+-            <svg class="feature-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+-              <rect x="3" y="3" width="18" height="18" rx="2"/>
+-              <path d="M9 12l2 2 4-4"/>
+-            </svg>
+-            <p class="feature-item__text">Construir limites que protejam voc├¬ ÔÇö sem viver dominada pela culpa.</p>
++        <div class="sessao-clareza__inner" style="max-width: var(--container-narrow); margin-inline: auto;">
++          <div style="text-align: center; margin-bottom: var(--space-2xl);">
++            <h2 class="section__headline animate-on-scroll" style="margin-bottom: var(--space-xs);">SESS├âO CLAREZA</h2>
++            <p class="section__subtitle animate-on-scroll" style="font-family: var(--font-display); font-size: var(--text-xl); font-style: italic; color: var(--color-text-secondary); max-width: 600px; margin-inline: auto;">
++              Antes de decidir o pr├│ximo passo, talvez voc├¬ precise compreender onde est├í pisando.
++            </p>
+           </div>
+ 
+-          <div class="feature-item animate-on-scroll">
+-            <svg class="feature-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+-            </svg>
+-            <p class="feature-item__text">Trabalhar autoestima como posicionamento ÔÇö n├úo como afirma├º├úo motivacional.</p>
+-          </div>
++          <div class="sessao-clareza__card animate-on-scroll" style="background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-2xl); box-shadow: var(--shadow-md); margin-bottom: var(--space-3xl); text-align: center;">
++            <p style="font-size: var(--text-lg); line-height: var(--leading-normal); color: var(--color-text-secondary); margin-bottom: var(--space-xl); text-align: left; max-width: 680px; margin-inline: auto;">
++              Uma conversa individual de <strong>1h30</strong> para quem est├í vivendo um momento espec├¡fico de d├║vida, sobrecarga, transi├º├úo ou conflito e precisa de espa├ºo para organizar pensamentos, reconhecer aquilo que est├í sendo negociado e encontrar mais clareza sobre o pr├│ximo movimento.
++            </p>
+ 
+-          <div class="feature-item animate-on-scroll">
+-            <svg class="feature-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+-              <path d="M22 4L12 14.01l-3-3"/>
+-            </svg>
+-            <p class="feature-item__text">Tomar decis├Áes com mais consci├¬ncia ÔÇö em vez de repetir escolhas no autom├ítico.</p>
+-          </div>
++            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-md); margin-bottom: var(--space-xl);">
++              <span class="trust-badge" style="background: rgba(212, 175, 55, 0.08); border-color: rgba(212, 175, 55, 0.2); font-weight: var(--weight-semibold); color: var(--color-text-primary); text-transform: uppercase;">
++                1H30 DE CONVERSA PROFUNDA
++              </span>
++              <span class="trust-badge" style="background: rgba(212, 175, 55, 0.08); border-color: rgba(212, 175, 55, 0.2); font-weight: var(--weight-semibold); color: var(--color-text-primary); text-transform: uppercase;">
++                ONLINE
++              </span>
++            </div>
+ 
+-          <div class="feature-item animate-on-scroll">
+-            <svg class="feature-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+-              <circle cx="9" cy="7" r="4"/>
+-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+-            </svg>
+-            <p class="feature-item__text">Reconstruir rela├º├Áes a partir de novos posicionamentos ÔÇö n├úo apenas de boa vontade.</p>
++            <button class="btn-cta" data-open-modal data-cta-location="sessao-clareza" id="cta-clareza">
++              QUERO CONHECER A SESS├âO CLAREZA
++              <span class="btn-cta__arrow" aria-hidden="true">ÔåÆ</span>
++            </button>
+           </div>
+ 
+-          <div class="feature-item animate-on-scroll">
+-            <svg class="feature-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+-              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+-            </svg>
+-            <p class="feature-item__text">Desenvolver autonomia emocional para sustentar escolhas fora das sess├Áes.</p>
++          <div class="sessao-clareza__fits animate-on-scroll" style="padding-top: var(--space-lg);">
++            <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); text-align: center; margin-bottom: var(--space-xl); color: var(--color-text-primary);">A Sess├úo Clareza faz sentido se voc├¬:</h3>
++            <div style="display: grid; gap: var(--space-md); max-width: 680px; margin-inline: auto;">
++              <div style="background: rgba(251, 248, 244, 0.52); border: 1.5px solid var(--color-border-light); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); border-color: rgba(212, 175, 55, 0.15);">
++                <h4 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Est├í diante de uma decis├úo</h4>
++                <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary);">Mas medo, culpa ou expectativa externa est├úo dificultando sua escolha.</p>
++              </div>
++              <div style="background: rgba(251, 248, 244, 0.52); border: 1.5px solid var(--color-border-light); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); border-color: rgba(212, 175, 55, 0.15);">
++                <h4 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Sabe que algo precisa mudar</h4>
++                <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary);">Mas ainda n├úo consegue identificar exatamente onde est├í o problema.</p>
++              </div>
++              <div style="background: rgba(251, 248, 244, 0.52); border: 1.5px solid var(--color-border-light); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); border-color: rgba(212, 175, 55, 0.15);">
++                <h4 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Est├í emocionalmente sobrecarregada</h4>
++                <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary);">E percebe que continuar apenas ÔÇ£aguentandoÔÇØ deixou de funcionar.</p>
++              </div>
++              <div style="background: rgba(251, 248, 244, 0.52); border: 1.5px solid var(--color-border-light); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); border-color: rgba(212, 175, 55, 0.15);">
++                <h4 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Est├í vivendo uma transi├º├úo</h4>
++                <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary);">Na vida, no trabalho, nos relacionamentos ou consigo mesma.</p>
++              </div>
++              <div style="background: rgba(251, 248, 244, 0.52); border: 1.5px solid var(--color-border-light); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); border-color: rgba(212, 175, 55, 0.15);">
++                <h4 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Precisa recuperar clareza</h4>
++                <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary);">Antes de tomar uma decis├úo que pode impactar uma parte importante da sua vida.</p>
++              </div>
++            </div>
+           </div>
+-
+-        </div>
+-
+-        <div class="practical__cta animate-on-scroll" style="text-align: center;">
+-          <button class="btn-cta" data-open-modal data-cta-location="practical" id="cta-practical">
+-            Quero entender meu pr├│ximo passo
+-            <span class="btn-cta__arrow" aria-hidden="true">ÔåÆ</span>
+-          </button>
+         </div>
+-
+       </div>
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 06 ÔÇö SOBRE PAULA
++         SE├ç├âO 08 ÔÇö PAULA MAGRIN (SOBRE)
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+     <section class="about section" id="sobre" aria-label="Sobre Paula Magrin">
+       <div class="ambient-glow ambient-glow--teal" style="bottom: -10%; right: -10%;"></div>
+       <div class="container">
+ 
+-
+         <h2 class="section__headline animate-on-scroll" style="max-width: 680px; margin-bottom: var(--space-2xl);">
+-          Acolhimento para baixar a guarda.<br>
+-          <em>Firmeza para olhar para aquilo que voc├¬ talvez esteja evitando.</em>
++          Eu n├úo estou aqui para decidir por voc├¬.<br>
++          <em>Estou aqui para ajudar voc├¬ a compreender o que est├í por tr├ís das suas decis├Áes.</em>
+         </h2>
+ 
+         <div class="about__grid">
+@@ -384,27 +459,41 @@
+             <p class="about__title">Terapeuta</p>
+ 
+             <p class="about__text">
+-              Paula acompanha mulheres que j├í entenderam que motiva├º├úo n├úo resolve quando a vida pede uma mudan├ºa mais profunda.
++              Paula Magrin acompanha pessoas em processos de reconstru├º├úo, mudan├ºa e reposicionamento.
+             </p>
+ 
+-            <p class="about__text">
+-              Seu trabalho une profundidade e aplicabilidade: olhar para a hist├│ria, reconhecer o que ainda pesa e transformar essa leitura em posicionamentos concretos.
++            <p class="about__text" style="font-family: var(--font-body); font-size: var(--text-base); font-style: normal; color: var(--color-text-secondary);">
++              Seu trabalho busca compreender n├úo apenas aquilo que a pessoa sente, mas a estrutura por tr├ís dos sentimentos, escolhas e padr├Áes que v├¬m se repetindo na vida real.
+             </p>
+ 
+-            <p class="about__text">
+-              O acolhimento ├® genu├¡no, mas o processo n├úo se limita a acolher. ├ë o que ela chama de <strong>confronto amoroso</strong>: um espa├ºo seguro, direto e comprometido com movimento real.
++            <p class="about__text" style="font-family: var(--font-body); font-size: var(--text-base); font-style: normal; color: var(--color-text-secondary);">
++              A proposta ├® criar um espa├ºo seguro onde seja poss├¡vel baixar a guarda, olhar para a pr├│pria hist├│ria, compreender os padr├Áes estabelecidos, reconhecer os seus verdadeiros valores, reconstruir limites e desenvolver novos posicionamentos. Sem respostas prontas. Sem f├│rmulas universais. Com profundidade, consci├¬ncia e aplica├º├úo na vida pr├ítica.
+             </p>
+ 
++            <div class="confronto-amoroso animate-on-scroll" style="background: rgba(184, 149, 106, 0.05); border-left: 2.5px solid var(--color-gold); padding: var(--space-md) var(--space-lg); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-block: var(--space-lg);">
++              <p style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Confronto Amoroso</p>
++              <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-normal);">Aqui voc├¬ n├úo ser├í julgada pelo que viveu, mas tamb├®m ser├í convidada a compreender o papel que suas escolhas t├¬m na constru├º├úo daquilo que continuar├í vivendo. Acolher sem infantilizar; confrontar sem agredir.</p>
++            </div>
++
++            <div class="autorresponsabilidade animate-on-scroll" style="background: rgba(90, 99, 53, 0.05); border-left: 2.5px solid var(--color-olive); padding: var(--space-md) var(--space-lg); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-xl);">
++              <p style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Autorresponsabilidade consciente</p>
++              <p style="margin-bottom: 0; font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-normal);">Talvez voc├¬ n├úo tenha escolhido muitos dos padr├Áes que aprendeu no passado. Mas desenvolver consci├¬ncia sobre eles agora permite que novas escolhas e limites sejam constru├¡dos daqui em diante.</p>
++            </div>
++
+             <div class="about__credentials">
+               <p class="about__credentials-title">Forma├º├úo e Repert├│rio</p>
+               <div class="about__credentials-list">
+                 <span class="about__credential">Terapia Sist├¬mica Familiar</span>
+-                <span class="about__credential">Desenvolvimento Humano</span>
+-                <span class="about__credential">Intelig├¬ncia Emocional</span>
+-                <span class="about__credential">Perfil Comportamental</span>
+-                <span class="about__credential">Repert├│rio multidisciplinar em reconstru├º├úo de identidade</span>
++                <span class="about__credential">Desenvolvimento Humano e Perfil Comportamental</span>
++                <span class="about__credential">Intelig├¬ncia Emocional e Autonomia</span>
++                <span class="about__credential">Reconstru├º├úo de limites e sustenta├º├úo de mudan├ºas</span>
+               </div>
+             </div>
++
++            <div class="brand-signature" style="margin-top: var(--space-xl); display: grid; gap: var(--space-3xs); opacity: 0.85;">
++              <span style="font-family: var(--font-display); font-size: var(--text-lg); font-style: italic; color: var(--color-gold-deep);">Duas hist├│rias. Um encontro.</span>
++              <span style="font-family: var(--font-body); font-size: var(--text-xs); font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: var(--tracking-widest); color: var(--color-text-tertiary);">Consci├¬ncia. Escolha. Reconstru├º├úo.</span>
++            </div>
+           </div>
+ 
+         </div>
+@@ -413,78 +502,55 @@
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 07 ÔÇö PARA QUEM ├ë
++         SE├ç├âO 09 ÔÇö COMO FUNCIONA
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+-    <section class="for-whom section" id="para-quem" aria-label="Para quem ├® este processo">
++    <section class="como-funciona section" id="como-funciona" aria-label="Como funciona o processo">
+       <div class="container">
+-
+-        <h2 class="for-whom__headline section__headline animate-on-scroll" style="text-align: center;">
+-          Antes de conversar, ├® importante saber<br>
+-          <em>se este processo faz sentido para voc├¬.</em>
++        <h2 class="section__headline animate-on-scroll" style="text-align: center; margin-bottom: var(--space-2xl);">
++          Como funciona o processo terap├¬utico?
+         </h2>
+ 
+-        <div class="for-whom__grid">
+-
+-          <div class="for-whom__column for-whom__column--yes animate-on-scroll">
+-            <h3 class="for-whom__column-title">Este processo pode fazer sentido para voc├¬ se...</h3>
+-            <ul>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+-                <span>Repete situa├º├Áes nos relacionamentos, na fam├¡lia ou no trabalho ÔÇö mesmo querendo agir diferente.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+-                <span>Sente que passou tempo demais cuidando de todo mundo e perdeu um pouco de quem voc├¬ ├®.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+-                <span>Est├í passando por um momento de transi├º├úo ÔÇö separa├º├úo, mudan├ºa profissional, filhos crescendo, redefini├º├úo pessoal.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+-                <span>Quer um processo com profundidade ÔÇö n├úo apenas motiva├º├úo ou conselhos gen├®ricos.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+-                <span>Est├í disposta a olhar para os pr├│prios comportamentos ÔÇö mesmo quando isso for desconfort├ível.</span>
+-              </li>
+-            </ul>
++        <div class="como-funciona__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md); max-width: 900px; margin-inline: auto;">
++          <div class="como-funciona__item animate-on-scroll" style="background: var(--color-bg-primary); border: 1.5px solid var(--color-border-light); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; width: 100%;">
++            <div style="background: rgba(184, 149, 106, 0.1); width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); color: var(--color-gold);">
++              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
++            </div>
++            <h3 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-xs);">Atendimento Online</h3>
++            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0; line-height: var(--leading-normal);">Realizado por videochamada privada, garantindo sigilo, conforto e flexibilidade no seu pr├│prio espa├ºo de escolha.</p>
+           </div>
+ 
+-          <div class="for-whom__column for-whom__column--no animate-on-scroll">
+-            <h3 class="for-whom__column-title">Talvez este processo n├úo seja para voc├¬ se...</h3>
+-            <ul>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+-                <span>Procura uma f├│rmula r├ípida ou uma transforma├º├úo em poucas sess├Áes.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+-                <span>Espera que somente a terapeuta fa├ºa o trabalho por voc├¬.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+-                <span>Busca apenas motiva├º├úo, frases de efeito ou algu├®m que concorde com tudo.</span>
+-              </li>
+-              <li class="check-list__item">
+-                <svg class="check-list__icon check-list__icon--cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+-                <span>Espera uma promessa de transforma├º├úo instant├ónea ou resultado garantido.</span>
+-              </li>
+-            </ul>
++          <div class="como-funciona__item animate-on-scroll" style="background: var(--color-bg-primary); border: 1.5px solid var(--color-border-light); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; width: 100%;">
++            <div style="background: rgba(184, 149, 106, 0.1); width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); color: var(--color-gold);">
++              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
++            </div>
++            <h3 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-xs);">Sess├Áes Individuais</h3>
++            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0; line-height: var(--leading-normal);">Foco total e exclusivo na sua hist├│ria de vida, compreendendo as ra├¡zes dos seus padr├Áes de repeti├º├úo e limites.</p>
+           </div>
+ 
++          <div class="como-funciona__item animate-on-scroll" style="background: var(--color-bg-primary); border: 1.5px solid var(--color-border-light); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; width: 100%;">
++            <div style="background: rgba(184, 149, 106, 0.1); width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); color: var(--color-gold);">
++              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
++            </div>
++            <h3 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-xs);">Foco em Autonomia</h3>
++            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0; line-height: var(--leading-normal);">Para que voc├¬ desenvolva a estrutura emocional interna necess├íria para sustentar escolhas e limites fora da terapia.</p>
++          </div>
+         </div>
+ 
++        <div style="text-align: center; margin-top: var(--space-2xl);" class="animate-on-scroll">
++          <button class="btn-cta" data-open-modal data-cta-location="como-funciona" id="cta-funcionamento">
++            QUERO INICIAR O PROCESSO
++            <span class="btn-cta__arrow" aria-hidden="true">ÔåÆ</span>
++          </button>
++        </div>
+       </div>
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 08 ÔÇö PROVA SOCIAL
++         SE├ç├âO 10 ÔÇö DEPOIMENTOS
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+     <section class="social-proof section" id="depoimentos" aria-label="Depoimentos">
+       <div class="container">
+ 
+-
+         <h2 class="social-proof__headline section__headline animate-on-scroll">
+           Quem viveu o processo <em>reconhece a diferen├ºa.</em>
+         </h2>
+@@ -532,13 +598,12 @@
+     </section>
+ 
+     <!-- ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+-         SE├ç├âO 09 ÔÇö FAQ
++         SE├ç├âO 11 ÔÇö FAQ
+          ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
+     <section class="faq section" id="perguntas" aria-label="Perguntas frequentes">
+       <div class="ambient-glow ambient-glow--gold" style="top: 10%; left: -10%;"></div>
+       <div class="container">
+ 
+-
+         <h2 class="faq__headline section__headline animate-on-scroll">
+           Talvez voc├¬ esteja se perguntando...
+         </h2>
+@@ -551,7 +616,7 @@
+               <span class="faq-item__icon" aria-hidden="true"></span>
+             </button>
+             <div class="faq-item__answer" id="faq-1" role="region" aria-labelledby="faq-btn-1">
+-              <p>N├úo. Muitas mulheres procuram o processo quando percebem que algo precisa mudar, mesmo com a vida externamente organizada. Voc├¬ n├úo precisa esperar chegar ao limite.</p>
++              <p>N├úo. Muitas pessoas procuram o processo quando percebem que algo precisa mudar, mesmo com a vida externamente organizada. Voc├¬ n├úo precisa esperar chegar ao limite para come├ºar a cuidar de si e de seus limites.</p>
+             </div>
+           </div>
+ 
+@@ -561,7 +626,7 @@
+               <span class="faq-item__icon" aria-hidden="true"></span>
+             </button>
+             <div class="faq-item__answer" id="faq-2" role="region" aria-labelledby="faq-btn-2">
+-              <p>Saber ├® importante, mas nem sempre muda o comportamento. O processo trabalha o espa├ºo entre entender e conseguir agir diferente.</p>
++              <p>Saber qual ├® o problema ├® um passo importante, mas nem sempre ├® suficiente para mudar padr├Áes de comportamento arraigados. O processo terap├¬utico trabalha exatamente a dist├óncia entre entender intelectualmente e conseguir agir de forma consistente na pr├ítica.</p>
+             </div>
+           </div>
+ 
+@@ -570,27 +635,39 @@
+               <span>Como funciona o primeiro contato?</span>
+               <span class="faq-item__icon" aria-hidden="true"></span>
+             </button>
+-            <div class="faq-item__answer" id="faq-3" role="region" aria-labelledby="faq-btn-3">
+-              <p>Voc├¬ preenche o formul├írio com nome, WhatsApp e uma breve indica├º├úo do momento atual. A equipe entra em contato para alinhar o pr├│ximo passo.</p>
+-            </div>
+-          </div>
++            <div class="faq-item__òÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ -->
++    <section class="final-cta section" id="contato" aria-label="Entre em contato">
++      <div class="container">
++        <div class="final-cta__inner animate-on-scroll">
+ 
+-          <div class="faq-item animate-on-scroll" role="listitem">
+-            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
+-              <span>O atendimento ├® online?</span>
+-              <span class="faq-item__icon" aria-hidden="true"></span>
+-            </button>
+-            <div class="faq-item__answer" id="faq-4" role="region" aria-labelledby="faq-btn-4">
+-              <p>Sim. O atendimento online permite que voc├¬ participe do processo de qualquer lugar, com privacidade e conforto no seu pr├│prio espa├ºo.</p>
+-            </div>
+-          </div>
++          <hr class="separator separator--centered">
+ 
+-          <div class="faq-item animate-on-scroll" role="listitem">
+-            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5">
+-              <span>Quanto tempo dura um processo?</span>
+-              <span class="faq-item__icon" aria-hidden="true"></span>
+-            </button>
+-            <div class="faq-item__answer" id="faq-5" role="region" aria-labelledby="faq-btn-5">
++          <h2 class="final-cta__headline">
++            Talvez voc├¬ n├úo precise continuar carregando tudo isso sozinha.
++          </h2>
++
++          <p class="final-cta__text" style="color: var(--color-text-secondary); margin-bottom: var(--space-xs);">
++            A terapia pode ser o espa├ºo onde voc├¬ n├úo precisa chegar forte, pronta ou com todas as respostas.
++          </p>
++
++          <p class="final-cta__text" style="font-family: var(--font-display); font-size: var(--text-lg); font-style: italic; color: var(--color-text-primary); margin-bottom: var(--space-xl);">
++            Voc├¬ pode come├ºar exatamente de onde est├í. Talvez ningu├®m perceba o quanto voc├¬ est├í lutando por dentro. Aqui existe espa├ºo para olhar para isso.
++          </p>
++
++          <button class="btn-cta btn-cta--large" data-open-modal data-cta-location="final" id="cta-final">
++            QUERO CONVERSAR COM A PAULA
++            <span class="btn-cta__arrow" aria-hidden="true">ÔåÆ</span>
++          </button>
++
++          <p class="cta-microcopy" style="font-size: var(--text-sm); font-weight: var(--weight-semibold); margin-top: var(--space-md); color: var(--color-text-secondary);">
++            N├úo adie indefinidamente o cuidado com aquilo que tamb├®m sustenta todas as outras ├íreas da sua vida: voc├¬.
++          </p>
++
++        </div>
++      </div>
++    </section>
++
++  </main>iv class="faq-item__answer" id="faq-5" role="region" aria-labelledby="faq-btn-5">
+               <p>Cada processo ├® individual. O tempo depende da hist├│ria, do momento e da profundidade do trabalho necess├írio.</p>
+             </div>
+           </div>
+@@ -718,45 +795,52 @@
+           <label class="form-label">Qual dessas frases mais representa seu momento hoje?</label>
+           <div class="radio-options">
+             <div class="radio-option">
+-              <input class="radio-option__input" type="radio" id="momento-1" name="momento" value="Sinto que perdi um pouco de quem eu sou">
++              <input class="radio-option__input" type="radio" id="momento-1" name="momento" value="Digo sim querendo dizer nao e sinto culpa">
+               <label class="radio-option__label" for="momento-1">
+                 <span class="radio-option__indicator"></span>
+-                <span>Sinto que perdi um pouco de quem eu sou.</span>
++                <span>Digo ÔÇ£simÔÇØ querendo dizer ÔÇ£n├úoÔÇØ e sinto culpa/ressentimento.</span>
+               </label>
+             </div>
+             <div class="radio-option">
+-              <input class="radio-option__input" type="radio" id="momento-2" name="momento" value="Percebo padr├Áes que continuo repetindo">
++              <input class="radio-option__input" type="radio" id="momento-2" name="momento" value="Aceito coisas que sei que nao gostaria de aceitar">
+               <label class="radio-option__label" for="momento-2">
+                 <span class="radio-option__indicator"></span>
+-                <span>Percebo padr├Áes que continuo repetindo.</span>
++                <span>Aceito coisas que sei que n├úo gostaria de aceitar.</span>
+               </label>
+             </div>
+             <div class="radio-option">
+-              <input class="radio-option__input" type="radio" id="momento-3" name="momento" value="Tenho dificuldade de colocar limites">
++              <input class="radio-option__input" type="radio" id="momento-3" name="momento" value="Tento mudar mas nao consigo sustentar a mudanca">
+               <label class="radio-option__label" for="momento-3">
+                 <span class="radio-option__indicator"></span>
+-                <span>Tenho dificuldade de colocar limites.</span>
++                <span>Sei que preciso mudar, mas n├úo consigo sustentar a mudan├ºa.</span>
+               </label>
+             </div>
+             <div class="radio-option">
+-              <input class="radio-option__input" type="radio" id="momento-4" name="momento" value="Estou passando por uma fase de transi├º├úo">
++              <input class="radio-option__input" type="radio" id="momento-4" name="momento" value="Sinto-me sobrecarregada por carregar responsabilidades demais">
+               <label class="radio-option__label" for="momento-4">
+                 <span class="radio-option__indicator"></span>
+-                <span>Estou passando por uma fase de transi├º├úo.</span>
++                <span>Sinto-me sobrecarregada por carregar tudo sozinha.</span>
+               </label>
+             </div>
+             <div class="radio-option">
+-              <input class="radio-option__input" type="radio" id="momento-5" name="momento" value="Sei que preciso mudar, mas n├úo sei por onde come├ºar">
++              <input class="radio-option__input" type="radio" id="momento-5" name="momento" value="Questiono minhas decis├Áes sob a expectativa dos outros">
+               <label class="radio-option__label" for="momento-5">
+                 <span class="radio-option__indicator"></span>
+-                <span>Sei que preciso mudar alguma coisa, mas ainda n├úo sei por onde come├ºar.</span>
++                <span>Questiono minhas pr├│prias decis├Áes com base nas expectativas dos outros.</span>
+               </label>
+             </div>
+             <div class="radio-option">
+-              <input class="radio-option__input" type="radio" id="momento-6" name="momento" value="Outro">
++              <input class="radio-option__input" type="radio" id="momento-6" name="momento" value="Sinto que me afastei de quem eu realmente sou">
+               <label class="radio-option__label" for="momento-6">
+                 <span class="radio-option__indicator"></span>
+-                <span>Outro.</span>
++                <span>Sinto que me afastei de quem eu realmente sou por dentro.</span>
++              </label>
++            </div>
++            <div class="radio-option">
++              <input class="radio-option__input" type="radio" id="momento-7" name="momento" value="Outro">
++              <label class="radio-option__label" for="momento-7">
++                <span class="radio-option__indicator"></span>
++                <span>Outro / Prefiro conversar diretamente.</span>
+               </label>
+             </div>
+           </div>
