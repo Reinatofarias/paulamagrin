@@ -128,14 +128,25 @@
   .hero__complement {
     max-width: min(360px, calc(100vw - 2rem)) !important;
   }
+  .btn-cta {
+    width: auto;
+    max-width: min(420px, calc(100vw - 2rem));
+    padding: 0.85rem 1.25rem;
+    font-size: clamp(0.82rem, 3.6vw, 0.92rem);
+    line-height: 1.3;
+    white-space: normal;
+    text-align: center;
+  }
   .btn-cta--large {
-    width: min(340px, calc(100vw - 3rem));
-    max-width: calc(100vw - 3rem);
-    padding-inline: var(--space-lg);
+    width: min(100%, 380px);
+    max-width: calc(100vw - 2rem);
+    padding: 0.9rem 1.25rem;
     min-width: 0;
-    font-size: 0.95rem;
-    line-height: 1.2;
-    white-space: nowrap;
+    min-height: 52px;
+    font-size: clamp(0.82rem, 3.8vw, 0.92rem);
+    line-height: 1.35;
+    white-space: normal;
+    text-align: center;
   }
   .hero__media-wrapper {
     max-width: min(74vw, 240px);
@@ -167,7 +178,9 @@
   .testimonial-audio {
     padding: var(--space-md);
   }
+}
 
+@media (max-width: 768px) {
   .sessao-clareza__layout {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -175,9 +188,10 @@
   }
   .sessao-clareza__media {
     margin-bottom: 0;
+    justify-content: center;
   }
   .sessao-clareza__photo {
-    max-width: 260px;
+    max-width: 280px;
     margin: 0 auto;
   }
   .sessao-clareza__body {
@@ -193,6 +207,10 @@
   .sessao-clareza__cta-wrap {
     display: flex;
     justify-content: center;
+    width: 100%;
+  }
+  .sessao-clareza__cta-wrap .btn-cta {
+    width: min(100%, 380px);
   }
 
   .raiz__grid {
@@ -314,8 +332,10 @@
 
   .hero .btn-cta--large {
     min-width: min(100%, 340px);
+    max-width: 100%;
     padding-inline: var(--space-xl);
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
   }
 }
 

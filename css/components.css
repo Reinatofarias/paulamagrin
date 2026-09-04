@@ -112,6 +112,8 @@
 
 .btn-cta__arrow {
   display: inline-block;
+  flex-shrink: 0;
+  line-height: 1;
   transition: transform var(--duration-base) var(--ease-gentle);
   font-size: 1.1em;
 }
