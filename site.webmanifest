@@ -1,0 +1,22 @@
+{
+  "name": "Paula Magrin | Terapia para Mulheres Empresárias",
+  "short_name": "Paula Magrin",
+  "description": "Processo terapêutico e clareza emocional para empresárias e líderes. Reconstrução de identidade, limites e posicionamento.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1C1614",
+  "theme_color": "#1C1614",
+  "icons": [
+    {
+      "src": "images/logo/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

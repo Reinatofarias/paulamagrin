@@ -1,0 +1,7 @@
+# robots.txt para paulamagrin.com.br
+User-agent: *
+Allow: /
+Disallow: /obrigado.html
+
+# Sitemaps
+Sitemap: https://paulamagrin.com.br/sitemap.xml
