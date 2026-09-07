@@ -7,16 +7,17 @@
 
 .btn-cta {
   display: inline-flex;
+  box-sizing: border-box;
+  width: auto;
   max-width: 100%;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
-  padding: var(--space-md) var(--space-2xl);
-  min-height: 56px;
+  padding: 0.85rem 1.75rem;
+  min-height: 54px;
   font-family: var(--font-body);
-  font-size: var(--text-base);
+  font-size: clamp(0.85rem, 1.6vw, 0.96rem);
   font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.025em;
   color: var(--color-text-inverse);
   background: var(--color-terracotta-dark);
   border: 1px solid rgba(244, 247, 238, 0.2);
@@ -30,6 +31,22 @@
   overflow: hidden;
 }
 
+.btn-cta__text {
+  display: inline;
+  text-align: center;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+  max-width: 100%;
+}
+
+.btn-cta__nowrap {
+  white-space: nowrap;
+  display: inline;
+}
+
 /* Gold Foil Shimmer Hover Effect */
 .btn-cta::before {
   content: '';
@@ -39,28 +56,30 @@
   width: 50%;
   height: 100%;
   background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.45) 50%,
-    rgba(255, 255, 255, 0) 100%
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.28) 45%,
+    rgba(235, 206, 142, 0.42) 50%,
+    rgba(255, 255, 255, 0.28) 55%,
+    transparent 80%
   );
   transform: skewX(-25deg);
   transition: none;
+  pointer-events: none;
 }
 
 .btn-cta:hover {
   background: var(--color-terracotta);
-  transform: translateY(-2.5px);
+  color: var(--color-text-inverse);
+  box-shadow:
+    0 8px 24px rgba(142, 50, 31, 0.35),
+    0 0 0 3px rgba(221, 116, 88, 0.2);
+  transform: translateY(-2px);
 }
 
 .btn-cta:hover::before {
-  animation: shine 850ms var(--ease-out-expo);
-}
-
-@keyframes shine {
-  100% {
-    left: 200%;
-  }
+  left: 150%;
+  transition: left 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btn-cta:focus-visible {
@@ -74,9 +93,10 @@
 }
 
 .btn-cta--large {
-  padding: var(--space-lg) var(--space-3xl);
-  font-size: var(--text-lg);
-  min-height: 64px;
+  padding: clamp(0.85rem, 1.8vw, 1rem) clamp(1.25rem, 3vw, 2rem);
+  font-size: clamp(0.85rem, 1.5vw, 0.96rem);
+  min-height: 56px;
+  line-height: 1.35;
 }
 
 .btn-cta--secondary {
@@ -112,10 +132,13 @@
 
 .btn-cta__arrow {
   display: inline-block;
-  flex-shrink: 0;
   line-height: 1;
+  margin-left: 0.4em;
+  white-space: nowrap;
+  font-size: 1.05em;
+  vertical-align: baseline;
   transition: transform var(--duration-base) var(--ease-gentle);
-  font-size: 1.1em;
+  flex-shrink: 0;
 }
 
 .btn-cta:hover .btn-cta__arrow {
@@ -125,10 +148,17 @@
 /* ─── CTA Microcopy ─── */
 
 .cta-microcopy {
-  font-size: var(--text-sm);
+  font-size: clamp(0.72rem, 2.4vw, 0.85rem);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-tertiary);
   margin-top: var(--space-sm);
-  line-height: var(--leading-normal);
+  line-height: 1.5;
+  text-align: center;
+  max-width: min(42ch, calc(100vw - 2rem));
+  margin-inline: auto;
+  text-wrap: balance;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 /* ─── Floating CTA (Mobile) ─── */

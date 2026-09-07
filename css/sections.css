@@ -506,6 +506,24 @@
   margin-bottom: var(--space-lg);
 }
 
+.sessao-clareza__intro-text p {
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.sessao-clareza__intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.sessao-clareza__notice {
+  font-size: var(--text-xs) !important;
+  line-height: var(--leading-normal) !important;
+  color: var(--color-text-tertiary) !important;
+  margin-top: var(--space-md) !important;
+  padding-top: var(--space-xs);
+  border-top: 1px solid rgba(126, 59, 43, 0.12);
+}
+
 .sessao-clareza__badges-group {
   display: flex;
   flex-wrap: wrap;
@@ -803,15 +821,21 @@
 }
 
 .final-cta__inner {
-  max-width: 580px;
+  max-width: min(92vw, 620px);
   margin-inline: auto;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .final-cta__headline {
   margin-bottom: var(--space-lg);
   color: var(--color-text-inverse);
+  max-width: 100%;
 }
 
 .final-cta__text {
@@ -828,6 +852,14 @@
 
 .final-cta .final-cta__text[style*="font-family"] {
   color: var(--color-gold-light) !important;
+}
+
+.final-cta .cta-microcopy {
+  color: rgba(244, 247, 238, 0.76) !important;
+  max-width: min(44ch, calc(100vw - 2.5rem));
+  margin-inline: auto;
+  text-align: center;
+  text-wrap: balance;
 }
 
 /* ─── FOOTER ─── */

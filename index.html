@@ -33,13 +33,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/tokens.css?v=3.0">
-  <link rel="stylesheet" href="css/reset.css?v=3.0">
-  <link rel="stylesheet" href="css/base.css?v=3.0">
-  <link rel="stylesheet" href="css/components.css?v=3.0">
-  <link rel="stylesheet" href="css/animations.css?v=3.0">
-  <link rel="stylesheet" href="css/sections.css?v=3.0">
-  <link rel="stylesheet" href="css/responsive.css?v=3.0">
+  <link rel="stylesheet" href="css/tokens.css?v=3.2">
+  <link rel="stylesheet" href="css/reset.css?v=3.2">
+  <link rel="stylesheet" href="css/base.css?v=3.2">
+  <link rel="stylesheet" href="css/components.css?v=3.2">
+  <link rel="stylesheet" href="css/animations.css?v=3.2">
+  <link rel="stylesheet" href="css/sections.css?v=3.3">
+  <link rel="stylesheet" href="css/responsive.css?v=3.2">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -78,11 +78,11 @@
       </button>
 
       <nav class="header__nav" id="header-nav" aria-label="Navegação principal">
-        <a href="#sessao-clareza">Encontro de Clareza</a>
+        <a href="#sessao-clareza">Conversa no WhatsApp</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#sobre">Sobre</a>
         <a href="#depoimentos">Depoimentos</a>
-        <button type="button" data-open-modal data-cta-location="header">Conversar</button>
+        <button type="button" data-open-modal data-cta-location="header">Conversar no WhatsApp</button>
       </nav>
     </div>
   </header>
@@ -142,10 +142,11 @@
 
             <div class="hero__cta-group">
               <button class="btn-cta btn-cta--large" data-open-modal data-cta-location="hero" id="cta-hero">
-                QUERO ENTENDER MELHOR O QUE ESTÁ ACONTECENDO
-                <span class="btn-cta__arrow" aria-hidden="true">→</span>
+                <span class="btn-cta__text">
+                  QUERO CONVERSAR COM A PAULA <span class="btn-cta__nowrap">NO WHATSAPP&nbsp;<span class="btn-cta__arrow" aria-hidden="true">&rarr;</span></span>
+                </span>
               </button>
-              <p class="cta-microcopy">Encontro de Clareza · Gratuito · Online · Individual · Confidencial</p>
+              <p class="cta-microcopy">Conversa inicial no WhatsApp · Gratuita · Individual · Confidencial</p>
             </div>
 
             <div class="hero__trust">
@@ -153,7 +154,7 @@
                 <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
-                <span>Atendimento online · Sigilo para empresárias e líderes</span>
+                <span>Atendimento direto no WhatsApp · Sigilo para empresárias e líderes</span>
               </div>
             </div>
           </div>
@@ -400,15 +401,15 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         SEÇÃO 07 — ENCONTRO DE CLAREZA
+         SEÇÃO 07 — CONVERSA DE CLAREZA NO WHATSAPP
          ═══════════════════════════════════════════════ -->
-    <section class="sessao-clareza section" id="sessao-clareza" aria-label="Encontro de Clareza">
+    <section class="sessao-clareza section" id="sessao-clareza" aria-label="Conversa de Clareza no WhatsApp">
       <div class="container">
         <div class="sessao-clareza__inner" style="max-width: var(--container-narrow); margin-inline: auto;">
           <div style="text-align: center; margin-bottom: var(--space-2xl);">
-            <h2 class="section__headline animate-on-scroll" style="margin-bottom: var(--space-xs);">ENCONTRO DE CLAREZA</h2>
-            <p class="section__subtitle animate-on-scroll" style="font-family: var(--font-display); font-size: var(--text-xl); font-style: italic; color: var(--color-text-secondary); max-width: 600px; margin-inline: auto;">
-              Um primeiro espaço para você falar sobre o que está vivendo e começarmos a compreender melhor o que pode estar por trás das dificuldades que hoje estão pesando.
+            <h2 class="section__headline animate-on-scroll" style="margin-bottom: var(--space-xs);">CONVERSA DE CLAREZA</h2>
+            <p class="section__subtitle animate-on-scroll" style="font-family: var(--font-display); font-size: var(--text-xl); font-style: italic; color: var(--color-text-secondary); max-width: 620px; margin-inline: auto;">
+              Um primeiro contato direto e sem formalidades no WhatsApp, para você me contar o que está vivendo e começarmos a compreender o que está pesando.
             </p>
           </div>
 
@@ -417,7 +418,7 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
               <div class="sessao-clareza__media">
                 <img 
                   src="images/fotos/paula-clareza-cutout.webp" 
-                  alt="Paula Magrin no Encontro de Clareza" 
+                  alt="Paula Magrin" 
                   class="sessao-clareza__photo"
                   width="796"
                   height="1024"
@@ -425,21 +426,35 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
                 >
               </div>
               <div class="sessao-clareza__body">
-                <p class="sessao-clareza__intro-text">
-                  Você não precisa chegar sabendo exatamente qual é o problema. Você pode trazer uma relação, uma decisão, um conflito, um limite difícil de sustentar, uma situação que continua se repetindo ou simplesmente a sensação de que não quer continuar vivendo assim.<br><br>
-                  <strong>Atenção:</strong> O encontro é gratuito, mas envolve tempo e disponibilidade profissional. Por isso, é destinado a mulheres que estão vivendo uma questão real e desejam olhar para ela com mais atenção. Não é uma "sessão gratuita de terapia". Se a intenção for apenas experimentar uma sessão sem interesse real, este não é o formato indicado.
-                </p>
+                <div class="sessao-clareza__intro-text">
+                  <p>
+                    O primeiro passo não é uma reunião formal de vídeo. É uma conversa direta, humana e confidencial comigo no WhatsApp.
+                  </p>
+                  <p>
+                    É o momento de parar de tentar consertar a vida por fora e olhar direto para a versão que está decidindo tudo por dentro.
+                  </p>
+                  <p>
+                    Feito para mulheres que já tentaram de tudo e voltaram para o mesmo lugar. Que aguentam caladas para manter a paz. Que se sentem culpadas por não dar conta de mais.
+                  </p>
+                  <p>
+                    Você não precisa ter tudo estruturado nem ligar uma câmera. No WhatsApp, você me conta o que está acontecendo — no seu tempo e com total sigilo — para entendermos juntas o melhor próximo passo.
+                  </p>
+                  <p class="sessao-clareza__notice">
+                    <strong>Atendimento individual:</strong> Essa conversa inicial é gratuita, personalizada e feita com dedicação profissional para quem busca clareza real sobre o momento que está enfrentando.
+                  </p>
+                </div>
 
                 <div class="sessao-clareza__badges-group">
-                  <span class="trust-badge">PRIMEIRA CONVERSA INDIVIDUAL E ONLINE</span>
-                  <span class="trust-badge">ESPAÇO SEGURO E CONFIDENCIAL</span>
-                  <span class="trust-badge">FOCO NO SEU MOMENTO ATUAL</span>
+                  <span class="trust-badge">ATENDIMENTO DIRETO NO WHATSAPP</span>
+                  <span class="trust-badge">SEM PRESSÃO DE CÂMERA OU VÍDEO</span>
+                  <span class="trust-badge">TOTALMENTE INDIVIDUAL E SIGILOSO</span>
                 </div>
 
                 <div class="sessao-clareza__cta-wrap">
                   <button class="btn-cta" data-open-modal data-cta-location="sessao-clareza" id="cta-clareza">
-                    QUERO SOLICITAR MEU ENCONTRO DE CLAREZA
-                    <span class="btn-cta__arrow" aria-hidden="true">→</span>
+                    <span class="btn-cta__text">
+                      CONVERSAR COM A PAULA <span class="btn-cta__nowrap">NO WHATSAPP&nbsp;<span class="btn-cta__arrow" aria-hidden="true">&rarr;</span></span>
+                    </span>
                   </button>
                 </div>
               </div>
@@ -447,7 +462,7 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
           </div>
 
           <div class="sessao-clareza__fits animate-on-scroll" style="padding-top: var(--space-lg);">
-            <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); text-align: center; margin-bottom: var(--space-xl); color: var(--color-text-primary);">O Encontro de Clareza faz sentido se você:</h3>
+            <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); text-align: center; margin-bottom: var(--space-xl); color: var(--color-text-primary);">Essa conversa no WhatsApp faz sentido se você:</h3>
             <div style="display: grid; gap: var(--space-md); max-width: 680px; margin-inline: auto;">
               <div style="background: rgba(251, 248, 244, 0.52); border: 1.5px solid var(--color-border-light); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); border-color: rgba(212, 175, 55, 0.15);">
                 <h4 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-3xs);">Uma situação que continua se repetindo</h4>
@@ -551,8 +566,8 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
     <section class="como-funciona section" id="como-funciona" aria-label="Como funciona o processo">
       <div class="container">
         <h2 class="section__headline animate-on-scroll" style="text-align: center; margin-bottom: var(--space-2xl);">
-          O que acontece depois do Encontro de Clareza?
-          <p style="font-size: var(--text-lg); color: var(--color-text-secondary); margin-top: var(--space-md); font-family: var(--font-body); font-weight: normal; text-transform: none; letter-spacing: normal;">O Encontro de Clareza é o primeiro passo. Ao final da conversa, poderei explicar possibilidades de acompanhamento caso alguma faça sentido para você. A decisão de continuar será sempre sua. Se decidirmos seguir com o processo terapêutico, ele funciona assim:</p>
+          O que acontece depois da conversa no WhatsApp?
+          <p style="font-size: var(--text-lg); color: var(--color-text-secondary); margin-top: var(--space-md); font-family: var(--font-body); font-weight: normal; text-transform: none; letter-spacing: normal;">A conversa no WhatsApp é o primeiro passo. Nela, compreendemos seu momento e poderei explicar possibilidades de acompanhamento, caso alguma faça sentido para você. A decisão de continuar será sempre sua. Se decidirmos seguir com o processo terapêutico continuado, ele funciona assim:</p>
         </h2>
 
         <div class="como-funciona__grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md); max-width: 900px; margin-inline: auto;">
@@ -560,8 +575,8 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
             <div style="background: rgba(184, 149, 106, 0.1); width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); color: var(--color-gold);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-xs);">Atendimento Online</h3>
-            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0; line-height: var(--leading-normal);">Realizado por videochamada privada, com sigilo e flexibilidade para a rotina de quem lidera.</p>
+            <h3 style="font-family: var(--font-body); font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); margin-bottom: var(--space-xs);">Sessões por Videochamada</h3>
+            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: 0; line-height: var(--leading-normal);">Se avançarmos para a terapia, os encontros são realizados por videochamada privada, com total sigilo e flexibilidade para a sua rotina.</p>
           </div>
 
           <div class="como-funciona__item animate-on-scroll" style="background: var(--color-bg-primary); border: 1.5px solid var(--color-border-light); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; width: 100%;">
@@ -583,8 +598,9 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
 
         <div style="text-align: center; margin-top: var(--space-2xl);" class="animate-on-scroll">
           <button class="btn-cta" data-open-modal data-cta-location="como-funciona" id="cta-funcionamento">
-            QUERO INICIAR O PROCESSO
-            <span class="btn-cta__arrow" aria-hidden="true">→</span>
+            <span class="btn-cta__text">
+              CONVERSAR COM A PAULA <span class="btn-cta__nowrap">NO WHATSAPP&nbsp;<span class="btn-cta__arrow" aria-hidden="true">&rarr;</span></span>
+            </span>
           </button>
         </div>
       </div>
@@ -772,11 +788,11 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
 
           <div class="faq-item animate-on-scroll" role="listitem">
             <button class="faq-item__question" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
-              <span>Esse encontro é uma sessão gratuita de terapia?</span>
+              <span>Como funciona essa conversa inicial?</span>
               <span class="faq-item__icon" aria-hidden="true"></span>
             </button>
             <div class="faq-item__answer" id="faq-2" role="region" aria-labelledby="faq-btn-2">
-              <p>Não. O Encontro de Clareza é uma primeira conversa para compreender o momento que você está vivendo e avaliar possíveis próximos passos.</p>
+              <p>O atendimento inicial acontece diretamente no WhatsApp. É uma primeira conversa reservada e acolhedora para compreender o momento que você está vivendo e avaliar possíveis caminhos, sem a formalidade de uma reunião.</p>
             </div>
           </div>
 
@@ -792,21 +808,21 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
 
           <div class="faq-item animate-on-scroll" role="listitem">
             <button class="faq-item__question" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
-              <span>O encontro é online?</span>
+              <span>Preciso fazer chamada de vídeo logo de início?</span>
               <span class="faq-item__icon" aria-hidden="true"></span>
             </button>
             <div class="faq-item__answer" id="faq-4" role="region" aria-labelledby="faq-btn-4">
-              <p>Sim. É realizado online, de forma individual e confidencial.</p>
+              <p>Não. O primeiro contato acontece 100% pelo WhatsApp, por mensagem ou áudio, no seu tempo e com sigilo absoluto. Você não precisa ligar a câmera. As sessões por vídeo acontecem apenas se decidirmos iniciar o acompanhamento terapêutico formal.</p>
             </div>
           </div>
 
           <div class="faq-item animate-on-scroll" role="listitem">
             <button class="faq-item__question" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5">
-              <span>O que acontece depois?</span>
+              <span>O que acontece depois da conversa no WhatsApp?</span>
               <span class="faq-item__icon" aria-hidden="true"></span>
             </button>
             <div class="faq-item__answer" id="faq-5" role="region" aria-labelledby="faq-btn-5">
-              <p>Ao final, conversaremos sobre o que apareceu e sobre possíveis próximos passos. Caso algum acompanhamento faça sentido, Paula poderá explicar as possibilidades. A decisão de continuar é sua.</p>
+              <p>Ao final da conversa, avaliaremos o que apareceu e os possíveis próximos passos. Caso algum acompanhamento faça sentido, Paula explicará as possibilidades. A decisão de continuar será sempre sua.</p>
             </div>
           </div>
 
@@ -847,12 +863,13 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
           </p>
 
           <button class="btn-cta btn-cta--large" data-open-modal data-cta-location="final" id="cta-final">
-            QUERO ENTENDER O QUE ESTÁ ACONTECENDO COMIGO
-            <span class="btn-cta__arrow" aria-hidden="true">→</span>
+            <span class="btn-cta__text">
+              QUERO CONVERSAR COM A PAULA <span class="btn-cta__nowrap">NO WHATSAPP&nbsp;<span class="btn-cta__arrow" aria-hidden="true">&rarr;</span></span>
+            </span>
           </button>
 
-          <p class="cta-microcopy" style="font-size: var(--text-sm); font-weight: var(--weight-semibold); margin-top: var(--space-md); color: var(--color-text-secondary);">
-            Gratuito · Online · Individual · Personalizado · Confidencial
+          <p class="cta-microcopy">
+            Conversa inicial no WhatsApp · Gratuita · Individual · Confidencial
           </p>
 
         </div>
@@ -904,8 +921,8 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
       </button>
 
       <form id="lead-form" novalidate>
-        <h3 class="modal__title" id="modal-title">Vamos conversar?</h3>
-        <p class="modal__subtitle">Preencha seus dados para entendermos seu momento como empresária e o melhor próximo passo.</p>
+        <h3 class="modal__title" id="modal-title">Vamos conversar no WhatsApp?</h3>
+        <p class="modal__subtitle">Preencha seus dados para Paula entrar em contato com você diretamente pelo WhatsApp, com total discrição.</p>
 
         <div class="form-group">
           <label class="form-label" for="field-nome">Seu nome</label>
@@ -963,11 +980,12 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
         <input type="hidden" name="device_type">
 
         <button class="btn-cta" type="submit" style="width: 100%; margin-top: var(--space-md);" id="cta-form-submit">
-          QUERO SOLICITAR MEU ENCONTRO DE CLAREZA
-          <span class="btn-cta__arrow" aria-hidden="true">→</span>
+          <span class="btn-cta__text">
+            CONVERSAR COM A PAULA <span class="btn-cta__nowrap">NO WHATSAPP&nbsp;<span class="btn-cta__arrow" aria-hidden="true">&rarr;</span></span>
+          </span>
         </button>
 
-        <p class="cta-microcopy" style="text-align: center;">Seus dados são confidenciais e serão utilizados apenas para entrarmos em contato sobre o Encontro de Clareza.</p>
+        <p class="cta-microcopy" style="text-align: center;">Seus dados são confidenciais e serão utilizados apenas para a Paula entrar em contato com você pelo WhatsApp.</p>
       </form>
 
       <!-- Success State -->
@@ -977,9 +995,9 @@ Talvez o problema não seja falta de força. Talvez você ainda não tenha conse
             <path d="M20 6L9 17l-5-5"/>
           </svg>
         </div>
-        <h3 class="form-success__title">Recebemos sua mensagem.</h3>
-        <p class="form-success__text">Em breve, entraremos em contato pelo WhatsApp para entendermos seu momento e explicarmos o próximo passo.</p>
-        <p class="cta-microcopy" style="margin-top: var(--space-lg);">A equipe retornará pelo WhatsApp informado no formulário.</p>
+        <h3 class="form-success__title">Recebemos seus dados.</h3>
+        <p class="form-success__text">Em breve, a Paula entrará em contato com você pelo WhatsApp para conversarem sobre seu momento.</p>
+        <p class="cta-microcopy" style="margin-top: var(--space-lg);">Aguarde a mensagem da Paula no número informado.</p>
       </div>
 
     </div>
