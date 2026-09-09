@@ -370,13 +370,26 @@
         lead_qualification: data.momento || ''
       });
 
-      // Show success state
-      showFormSuccess();
+      pushDataLayer('whatsapp_click', {
+        phone: '5516993391001',
+        source: 'lead_form'
+      });
 
-      // Here you would send data to your backend
-      // fetch('/api/lead', { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } })
+      trackMetaPixel('Lead', {
+        content_name: 'lead_form',
+        lead_source: getUTM('utm_source') || 'direct'
+      });
+      trackMetaPixel('Contact', {
+        content_name: 'whatsapp_lead_form'
+      });
+
+      var whatsappMessage = 'Oi Paula, vim do seu site, e gostaria de saber mais.';
+      var whatsappUrl = 'https://wa.me/5516993391001?text=' + encodeURIComponent(whatsappMessage);
 
       console.log('Lead captured:', data);
+      window.setTimeout(function () {
+        window.location.href = whatsappUrl;
+      }, 250);
     });
   }
 
@@ -506,6 +519,11 @@
       });
     }
     window.dataLayer.push(payload);
+  }
+
+  function trackMetaPixel(event, data) {
+    if (typeof window.fbq !== 'function') return;
+    window.fbq('track', event, data || {});
   }
 
   function initScrollDepth() {
