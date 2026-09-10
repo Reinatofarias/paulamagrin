@@ -5,6 +5,10 @@
 (function () {
   'use strict';
 
+  var MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/vg50hmdfihx22uu31x2aqcpgsxiy1bfu';
+  var WHATSAPP_PHONE = '5516993391001';
+  var WHATSAPP_MESSAGE = 'Oi Paula, vim do seu site, e gostaria de saber mais.';
+
   /* ─── DOM Ready ─── */
   document.addEventListener('DOMContentLoaded', init);
 
@@ -371,7 +375,7 @@
       });
 
       pushDataLayer('whatsapp_click', {
-        phone: '5516993391001',
+        phone: WHATSAPP_PHONE,
         source: 'lead_form'
       });
 
@@ -383,13 +387,18 @@
         content_name: 'whatsapp_lead_form'
       });
 
-      var whatsappMessage = 'Oi Paula, vim do seu site, e gostaria de saber mais.';
-      var whatsappUrl = 'https://wa.me/5516993391001?text=' + encodeURIComponent(whatsappMessage);
+      var leadPayload = {
+        nome: data.nome || '',
+        telefone: data.whatsapp || '',
+        data: new Date().toISOString(),
+        resposta_qualificacao: data.momento || ''
+      };
+      var whatsappUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE);
 
       console.log('Lead captured:', data);
-      window.setTimeout(function () {
+      submitLeadWebhook(leadPayload).finally(function () {
         window.location.href = whatsappUrl;
-      }, 250);
+      });
     });
   }
 
@@ -524,6 +533,33 @@
   function trackMetaPixel(event, data) {
     if (typeof window.fbq !== 'function') return;
     window.fbq('track', event, data || {});
+  }
+
+  function submitLeadWebhook(payload) {
+    if (!window.fetch || !window.URLSearchParams) return Promise.resolve();
+
+    var body = new URLSearchParams();
+    Object.keys(payload).forEach(function (key) {
+      body.append(key, payload[key]);
+    });
+
+    var request = window.fetch(MAKE_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: body.toString()
+    }).catch(function (error) {
+      console.warn('Lead webhook failed:', error);
+    });
+
+    var timeout = new Promise(function (resolve) {
+      window.setTimeout(resolve, 1200);
+    });
+
+    return Promise.race([request, timeout]);
   }
 
   function initScrollDepth() {
